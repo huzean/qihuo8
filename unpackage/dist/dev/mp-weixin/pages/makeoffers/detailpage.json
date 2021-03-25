@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "报价详情",
+  "navigationBarBackgroundColor": "#12b0ed",
+  "navigationBarTextStyle": "white",
+  "backgroundColorTop": "#fcfcfc",
+  "backgroundColorBottom": "#fcfcfc",
+  "disableScroll": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

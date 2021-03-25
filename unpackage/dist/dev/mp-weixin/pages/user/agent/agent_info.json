@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#fc4d3d",
+  "navigationBarTitleText": "维护客户信息",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {}
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "实名认证",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-upload": "/components/tui-upload/tui-upload"
+  }
+}

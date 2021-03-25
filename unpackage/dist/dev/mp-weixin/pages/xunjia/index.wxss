@@ -1,0 +1,283 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+page {
+  background: #f4f4f4;
+  width: 100%;
+  height: 100%;
+}
+.container {
+  width: 100%;
+}
+.input_box {
+  width: 90%;
+  margin: 15px auto;
+  border: solid #f4f4f4 1px;
+  background: #fff;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+}
+.brand {
+  width: 100%;
+  height: 35px;
+  border-bottom: solid #f4f4f4 1px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  line-height: 35px;
+}
+.brand .arrows {
+  width: 0px;
+  height: 0px;
+  border-top: 6px solid #e4e4e4;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  position: relative;
+  top: 15px;
+  left: 200px;
+}
+.brand .brand_item1 {
+  width: 50px;
+  height: 100%;
+  margin: 0 50px 0 10px;
+  line-height: 35px;
+  font-size: 28rpx;
+  color: #333;
+}
+.brand .brand_item3 {
+  font-size: 22rpx;
+  width: 224px;
+  position: absolute;
+}
+.input_add {
+  height: 30px;
+}
+.input_add view {
+  margin: 5px 10px 0 0;
+  padding: 3px 8px;
+  width: 55px;
+  text-align: center;
+  font-size: 12px;
+  color: #f68004;
+  border: solid #f68004 0.8px;
+  float: right;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+}
+.product {
+  width: 100%;
+  height: 35px;
+  border-bottom: solid #f4f4f4 1px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  line-height: 35px;
+}
+.product .arrows {
+  width: 0px;
+  height: 0px;
+  border-top: 6px solid #e4e4e4;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  position: relative;
+  top: 15px;
+  left: 200px;
+}
+.product .brand_item1 {
+  width: 50px;
+  height: 100%;
+  margin: 0 50px 0 10px;
+  line-height: 35px;
+  font-size: 28rpx;
+  color: #333;
+}
+.product .brand_item3 {
+  font-size: 22rpx;
+  width: 224px;
+  position: absolute;
+}
+.amount {
+  width: 100%;
+  height: 35px;
+  border-bottom: solid #f4f4f4 1px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  line-height: 35px;
+}
+.amount .brand_item1 {
+  width: 50px;
+  height: 100%;
+  margin: 0 50px 0 10px;
+  line-height: 35px;
+  font-size: 28rpx;
+  color: #333;
+}
+.amount .brand_item2 input {
+  width: 224px;
+  height: 100%;
+  font-size: 26rpx;
+}
+.amount .brand_item2 .input-placeholder {
+  color: #d9d9d9;
+  font-size: 11px;
+}
+.site_box {
+  width: 100%;
+  height: 35px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  border-bottom: solid #f4f4f4 1px;
+  line-height: 35px;
+}
+.site_box .brand_item1 {
+  padding: 0px 10px;
+  font-size: 25rpx;
+  color: #333;
+}
+.site_box .brand_item2 {
+  padding-right: 5px;
+  margin-top: 10px;
+  background-color: transparent;
+  width: 0px;
+  height: 0px;
+  font-weight: bold;
+  border: 7px solid transparent;
+  border-left-color: #e4e4e4;
+}
+.add_msg {
+  width: 90%;
+  height: 150px;
+  margin: 15px auto;
+  border: solid #f4f4f4 1px;
+  background: #fff;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  position: relative;
+}
+.add_msg .add_text_msg {
+  width: 100%;
+  padding: 5px 0 5px 10px;
+  padding-bottom: 5px;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: solid 1px #f4f4f4;
+}
+.add_msg .add_nth2 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: solid #f4f4f4 1px;
+  color: #333;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  margin-top: 10px;
+}
+.add_msg .add_nth2 .left {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 11px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.add_msg .add_nth2 .left view:nth-child(1) {
+  margin-left: 20px;
+  color: #b3b3b3;
+}
+.add_msg .add_nth2 .right {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 11px;
+  font-weight: bold;
+}
+.add_msg .add_nth2 .right view:nth-child(1) {
+  margin-left: 20px;
+  color: #b3b3b3;
+}
+.add_msg .add_nth2 .ending {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 11px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+.add_msg .add_nth2 .ending view:nth-child(1) {
+  margin-left: 20px;
+  color: #b3b3b3;
+}
+.add_msg .time {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 10px;
+}
+.add_msg .time view:nth-child(1) {
+  padding: 0 20px 0 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+.add_msg .time view:nth-child(2) {
+  font-size: 12px;
+  text-align: center;
+}
+.add_msg .time .countdown {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.add_msg .time_delae {
+  width: 25px;
+  color: #f68004;
+  border: solid #f68004 0.8px;
+  padding: 1px;
+  text-align: center;
+  -webkit-border-radius: 25px;
+          border-radius: 25px;
+  position: absolute;
+  top: 2px;
+  right: 10px;
+}
+.add-btn {
+  width: 80%;
+  font-size: 15px;
+}
+

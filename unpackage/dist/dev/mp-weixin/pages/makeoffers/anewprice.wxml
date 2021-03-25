@@ -1,0 +1,1 @@
+<view><view class="anewprice"><view>重新报价:</view><view><input type="number" placeholder="请输入" data-event-opts="{{[['input',[['__set_model',['','price','$event',[]]]]]]}}" value="{{price}}" bindinput="__e"/></view></view><view class="btn_button"><button data-event-opts="{{[['tap',[['bindtipe',['$event']]]]]}}" bindtap="__e">提交</button></view></view>

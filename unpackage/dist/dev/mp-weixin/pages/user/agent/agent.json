@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#fc4d3d",
+  "navigationBarTitleText": "我的客户",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "none": "/components/qy/none"
+  }
+}

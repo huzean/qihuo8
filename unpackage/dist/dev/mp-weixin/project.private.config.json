@@ -1,0 +1,78 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productList/productList",
+          "pathName": "pages/extend-view/productList/productList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/category/cate",
+          "pathName": "pages/category/cate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

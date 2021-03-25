@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "分类",
+  "navigationBarBackgroundColor": "#e41f19",
+  "navigationBarTextStyle": "white",
+  "backgroundColorTop": "#fcfcfc",
+  "backgroundColorBottom": "#fcfcfc",
+  "disableScroll": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-numberbox": "/components/numberbox/numberbox",
+    "tui-icon": "/components/icon/icon",
+    "tui-badge": "/components/badge/badge",
+    "tui-tag": "/components/tag/tag",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore"
+  }
+}

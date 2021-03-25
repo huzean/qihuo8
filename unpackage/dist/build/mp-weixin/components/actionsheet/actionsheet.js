@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/actionsheet/actionsheet"],{"3ba5":function(t,e,n){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0;var n={name:"tuiActionsheet",props:{maskClosable:{type:Boolean,default:!0},show:{type:Boolean,default:!1},itemList:{type:Array,default:function(){return[{text:"确定",color:"#1a1a1a"}]}},tips:{type:String,default:""},color:{type:String,default:"#9a9a9a"},size:{type:Number,default:26},isCancel:{type:Boolean,default:!0}},methods:{px:function(e){return t.upx2px(e)+"px"},handleClickMask:function(){this.maskClosable&&this.handleClickCancel()},handleClickItem:function(t){if(this.show){var e=t.currentTarget.dataset;this.$emit("click",{index:e.index})}},handleClickCancel:function(){this.$emit("cancel")}}};e.default=n}).call(this,n("543d")["default"])},"447e":function(t,e,n){"use strict";n.r(e);var a=n("3ba5"),i=n.n(a);for(var u in a)"default"!==u&&function(t){n.d(e,t,(function(){return a[t]}))}(u);e["default"]=i.a},5297:function(t,e,n){"use strict";n.r(e);var a=n("9a98"),i=n("447e");for(var u in i)"default"!==u&&function(t){n.d(e,t,(function(){return i[t]}))}(u);n("d9d1");var l,c=n("f0c5"),o=Object(c["a"])(i["default"],a["b"],a["c"],!1,null,null,null,!1,a["a"],l);e["default"]=o.exports},"8da3":function(t,e,n){},"9a98":function(t,e,n){"use strict";var a;n.d(e,"b",(function(){return i})),n.d(e,"c",(function(){return u})),n.d(e,"a",(function(){return a}));var i=function(){var t=this,e=t.$createElement,n=(t._self._c,t.tips?t.px(t.size):null);t.$mp.data=Object.assign({},{$root:{m0:n}})},u=[]},d9d1:function(t,e,n){"use strict";var a=n("8da3"),i=n.n(a);i.a}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/actionsheet/actionsheet-create-component',
+    {
+        'components/actionsheet/actionsheet-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("5297"))
+        })
+    },
+    [['components/actionsheet/actionsheet-create-component']]
+]);

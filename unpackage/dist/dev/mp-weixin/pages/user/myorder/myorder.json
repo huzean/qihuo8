@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "tui-button": "/components/extend/button/button",
+    "tui-countdown": "/components/countdown/countdown",
+    "tui-list-cell": "/components/list-cell/list-cell"
+  }
+}

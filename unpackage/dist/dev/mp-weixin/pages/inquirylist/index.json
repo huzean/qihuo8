@@ -1,0 +1,11 @@
+{
+  "navigationBarBackgroundColor": "#5e017a",
+  "navigationBarTitleText": "询价单",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker",
+    "tui-numberbox": "/components/numberbox/numberbox",
+    "tui-icon": "/components/icon/icon",
+    "tui-badge": "/components/badge/badge"
+  }
+}

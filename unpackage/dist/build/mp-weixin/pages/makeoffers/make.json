@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "报价",
+  "navigationBarBackgroundColor": "#12b0ed",
+  "navigationBarTextStyle": "white",
+  "backgroundColorTop": "#fcfcfc",
+  "backgroundColorBottom": "#fcfcfc",
+  "disableScroll": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "uni-icons": "/components/uni-icons/uni-icons",
+    "tui-icon": "/components/icon/icon"
+  }
+}

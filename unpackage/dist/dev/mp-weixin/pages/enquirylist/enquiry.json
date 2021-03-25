@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#550266",
+  "navigationBarTitleText": "询价",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-icon": "/components/icon/icon",
+    "search": "/components/search/index"
+  }
+}

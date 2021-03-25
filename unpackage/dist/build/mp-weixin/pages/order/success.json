@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "提交订单成功",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-button": "/components/extend/button/button"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "询价详情",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundColorTop": "#fcfcfc",
+  "backgroundColorBottom": "#fcfcfc",
+  "disableScroll": true,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "tui-countdown": "/components/countdown/countdown"
+  }
+}
