@@ -31,7 +31,6 @@
         <text class="iconfont icon-jifen">
             <text >{{ item.costPrice}}</text>
             <!-- <text>{{ integralnumber }}</text> -->
-        <!-- <text>20</text> -->
         </text>
         <text class="iconfont icon-winfo-icon-xiajiantou" style="font-size:12px;"></text>
         </view>
