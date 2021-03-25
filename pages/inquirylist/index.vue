@@ -31,6 +31,7 @@
         <text class="iconfont icon-jifen">
             <text >{{ item.costPrice}}</text>
             <!-- <text>{{ integralnumber }}</text> -->
+        <!-- <text>20</text> -->
         </text>
         <text class="iconfont icon-winfo-icon-xiajiantou" style="font-size:12px;"></text>
         </view>
@@ -50,10 +51,11 @@
             placeholder="输入积分数量"
           />
         </view>
-        <view class="buttons">
+        <!-- 修改了 -->
+        <!-- <view class="buttons">
           <text @click="unhide">取消</text>
           <text @click="submitFeedback">确定</text>
-        </view>
+        </view> -->
       </view>
 			</block>
        
