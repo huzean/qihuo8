@@ -13,6 +13,276 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productDetail/productDetail",
+          "pathName": "pages/extend-view/productDetail/productDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productDetail/productDetail",
+          "pathName": "pages/extend-view/productDetail/productDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productDetail/productDetail",
+          "pathName": "pages/extend-view/productDetail/productDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productDetail/productDetail",
+          "pathName": "pages/extend-view/productDetail/productDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productList/productList",
+          "pathName": "pages/extend-view/productList/productList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productList/productList",
+          "pathName": "pages/extend-view/productList/productList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productList/productList",
+          "pathName": "pages/extend-view/productList/productList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/news-search/news-search",
+          "pathName": "pages/extend-view/news-search/news-search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/category/cate",
+          "pathName": "pages/category/cate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/rankinglist/ranking",
+          "pathName": "pages/rankinglist/ranking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
           "name": "pages/inquirylist/index",
           "pathName": "pages/inquirylist/index",
           "query": "",
@@ -31,6 +301,12 @@
           "scene": null
         },
         {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
           "name": "pages/inquirylist/index",
           "pathName": "pages/inquirylist/index",
           "query": "",
@@ -43,8 +319,14 @@
           "scene": null
         },
         {
-          "name": "pages/inquirylist/index",
-          "pathName": "pages/inquirylist/index",
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirydetails/index",
+          "pathName": "pages/enquirydetails/index",
           "query": "",
           "scene": null
         },
@@ -55,14 +337,44 @@
           "scene": null
         },
         {
-          "name": "pages/extend-view/productList/productList",
-          "pathName": "pages/extend-view/productList/productList",
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/category/cate",
-          "pathName": "pages/category/cate",
+          "name": "pages/rankinglist/ranking",
+          "pathName": "pages/rankinglist/ranking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/productDetail/productDetail",
+          "pathName": "pages/extend-view/productDetail/productDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/rankinglist/ranking",
+          "pathName": "pages/rankinglist/ranking",
           "query": "",
           "scene": null
         },
@@ -70,6 +382,191 @@
           "name": "pages/makeoffers/make",
           "pathName": "pages/makeoffers/make",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/rankinglist/ranking",
+          "pathName": "pages/rankinglist/ranking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/set/set",
+          "pathName": "pages/user/set/set",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/wallet/purchase",
+          "pathName": "pages/user/wallet/purchase",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/inquirylist/index",
+          "pathName": "pages/inquirylist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/makeoffers/make",
+          "pathName": "pages/makeoffers/make",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/extend-view/detailpage/index",
+          "pathName": "pages/extend-view/detailpage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/enquirylist/enquiry",
+          "pathName": "pages/enquirylist/enquiry",
           "scene": null
         }
       ]

@@ -12,8 +12,9 @@
 				"navigationBarTextStyle": "white",
 				"backgroundColorTop": "#FFF",
 				"backgroundColorBottom": "#F7F7F7",
-				"enablePullDownRefresh": false,
+				"enablePullDownRefresh": true,
 				"onReachBottomDistance": 50
+				
 				
 			}
 		},{
@@ -119,8 +120,8 @@
 			"path": "pages/extend-view/news-search/news-search",
 			"style": {
 				"navigationBarTitleText": "搜索",
-				"navigationBarBackgroundColor": "#fff",
-				"navigationBarTextStyle": "black",
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white",
 				"backgroundColorTop": "#fff",
 				"backgroundColorBottom": "#fff"
 				
@@ -190,8 +191,50 @@
 	{
 		"path": "pages/enquirylist/enquiry",
 		"style": {
-			"navigationBarBackgroundColor": "#550266",
+			"navigationBarBackgroundColor": "#5e0271",
 			"navigationBarTitleText": "询价",
+			"navigationBarTextStyle": "white",
+			"enablePullDownRefresh": true
+			
+		}
+	},
+	// 排名
+	{
+		"path": "pages/rankinglist/ranking",
+		"style": {
+			"navigationBarBackgroundColor": "#5e0271",
+			"navigationBarTitleText": "排行榜",
+			"navigationBarTextStyle": "white",
+			"enablePullDownRefresh": true
+			
+		}
+	},
+	// 齐货8详情页index
+	{
+		"path": "pages/extend-view/detailpage/index",
+		"style": {
+			"navigationBarBackgroundColor": "#550266",
+			"navigationBarTitleText": "详情页",
+			"navigationBarTextStyle": "white",
+			"enablePullDownRefresh": true
+			
+		}
+	},// 齐货8我发布的询价详情页
+	{
+		"path": "pages/extend-view/detailpage/myenquirydetail",
+		"style": {
+			"navigationBarBackgroundColor": "#550266",
+			"navigationBarTitleText": "我的询价",
+			"navigationBarTextStyle": "white",
+			"enablePullDownRefresh": true
+			
+		}
+	},// 齐货8评分页面
+	{
+		"path": "pages/extend-view/detailpage/rate",
+		"style": {
+			"navigationBarBackgroundColor": "#550266",
+			"navigationBarTitleText": "我的评价",
 			"navigationBarTextStyle": "white",
 			"enablePullDownRefresh": true
 			
@@ -202,7 +245,7 @@
 			"path": "pages/makeoffers/make",
 			"style": {
 				"navigationBarTitleText": "报价",
-				"navigationBarBackgroundColor": "#12b0ed",
+				"navigationBarBackgroundColor": "#5e0271",
 				"navigationBarTextStyle": "white",
 				"backgroundColorTop": "#fcfcfc",
 				"backgroundColorBottom": "#fcfcfc",
@@ -230,21 +273,21 @@
 			}
 		},
 		// 重新报价
-		{
-			"path": "pages/makeoffers/anewprice",
-			"style": {
-				"navigationBarTitleText": "重新报价",
-				"navigationBarBackgroundColor": "#12b0ed",
-				"navigationBarTextStyle": "white",
-				"backgroundColorTop": "#fcfcfc",
-				"backgroundColorBottom": "#fcfcfc",
-				"disableScroll": true,
-				// "app-plus": {
-				// 	"bounce": "none"
-				// },
-				"enablePullDownRefresh": true
-			}
-		},
+		// {
+		// 	"path": "pages/makeoffers/anewprice",
+		// 	"style": {
+		// 		"navigationBarTitleText": "重新报价",
+		// 		"navigationBarBackgroundColor": "#12b0ed",
+		// 		"navigationBarTextStyle": "white",
+		// 		"backgroundColorTop": "#fcfcfc",
+		// 		"backgroundColorBottom": "#fcfcfc",
+		// 		"disableScroll": true,
+		// 		// "app-plus": {
+		// 		// 	"bounce": "none"
+		// 		// },
+		// 		"enablePullDownRefresh": true
+		// 	}
+		// },
 		// 搜索
 		{
 			"path": "pages/searhc/index",
@@ -347,6 +390,7 @@
 			"style": {
 				"enablePullDownRefresh": true,
 				"navigationBarTitleText": "",
+				"navigationBarTextStyle": "white",
 				// #ifdef MP
 				"navigationStyle": "custom",
 				// #endif
@@ -362,13 +406,20 @@
 			"path" : "pages/user/verify/verify",
 			"style" : {
 				"navigationBarTitleText": "实名认证",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white"
+				// #ifdef MP
+				// "navigationStyle": "custom"
+				// #endif
 			}
 		},{
 			"path" : "pages/user/set/set",
 			"style" : {
 				"navigationBarTitleText": "账户设置",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white"
 			}
 		}
      
@@ -452,15 +503,49 @@
             "path" : "pages/user/wallet/mywallet",
             "style" : {
 				"navigationBarTitleText": "我的钱包",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white"
 			}
         },{
             "path" : "pages/user/wallet/purchase",
             "style" : {
 				"navigationBarTitleText": "充值销币",
-				"enablePullDownRefresh": true
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white"
+				
 			}
-        }
+        },{
+            "path" : "pages/user/wallet/coin_log",
+            "style" : {
+				"navigationBarTitleText": "销币记录",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white"
+				
+			}
+        },
+		{
+		    "path" : "pages/user/wallet/gift_log",
+		    "style" : {
+				"navigationBarTitleText": "礼物记录",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white"
+				
+			}
+		},
+		{
+		    "path" : "pages/user/wallet/bill",
+		    "style" : {
+				"navigationBarTitleText": "我的账单",
+				"enablePullDownRefresh": true,
+				"navigationBarBackgroundColor": "#5e0271",
+				"navigationBarTextStyle": "white"
+				
+			}
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

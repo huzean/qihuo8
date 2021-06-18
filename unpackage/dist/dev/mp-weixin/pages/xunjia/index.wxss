@@ -43,8 +43,7 @@ page {
   margin: 15px auto;
   border: solid #f4f4f4 1px;
   background: #fff;
-  -webkit-border-radius: 10px;
-          border-radius: 10px;
+  border-radius: 10px;
 }
 .brand {
   width: 100%;
@@ -90,8 +89,7 @@ page {
   color: #f68004;
   border: solid #f68004 0.8px;
   float: right;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
+  border-radius: 5px;
 }
 .product {
   width: 100%;
@@ -184,8 +182,7 @@ page {
   margin: 15px auto;
   border: solid #f4f4f4 1px;
   background: #fff;
-  -webkit-border-radius: 10px;
-          border-radius: 10px;
+  border-radius: 10px;
   position: relative;
 }
 .add_msg .add_text_msg {
@@ -270,8 +267,7 @@ page {
   border: solid #f68004 0.8px;
   padding: 1px;
   text-align: center;
-  -webkit-border-radius: 25px;
-          border-radius: 25px;
+  border-radius: 25px;
   position: absolute;
   top: 2px;
   right: 10px;

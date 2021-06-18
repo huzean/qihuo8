@@ -61,8 +61,7 @@ page {
 .list .list_r .list_r_1 ._img {
   height: 40px;
   width: 40px;
-  -webkit-border-radius: 40px;
-          border-radius: 40px;
+  border-radius: 40px;
 }
 .list .list_r .list_r_1 input {
   text-align: right;

@@ -1,10 +1,18 @@
 {
-  "navigationBarBackgroundColor": "#550266",
+  "navigationBarBackgroundColor": "#5e0271",
   "navigationBarTitleText": "询价",
   "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {
+    "tui-tabs": "/components/tui-tabs/tui-tabs",
+    "myprompt": "/components/myprompt/myprompt",
     "tui-icon": "/components/icon/icon",
-    "search": "/components/search/index"
+    "tui-tag": "/components/tag/tag",
+    "tui-button": "/components/extend/button/button",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-nomore": "/components/nomore/nomore",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "tui-sticky": "/components/sticky/sticky",
+    "tui-bottom-popup": "/components/bottom-popup/bottom-popup"
   }
 }

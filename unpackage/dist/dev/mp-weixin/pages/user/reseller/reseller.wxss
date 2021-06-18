@@ -18,7 +18,6 @@ page {
   width: 100%;
   height: 250px;
   background-color: #DD524D;
-  background: -webkit-gradient(linear, left top, left bottom, from(#fc4d3d), to(#e93323));
   background: -webkit-linear-gradient(top, #fc4d3d, #e93323);
   background: linear-gradient(top, #fc4d3d, #e93323);
 }
@@ -53,8 +52,7 @@ page {
   background-color: #F5F5F5;
   width: 55%;
   height: 60px;
-  -webkit-border-radius: 60px;
-          border-radius: 60px;
+  border-radius: 60px;
   position: absolute;
   bottom: -30px;
   left: 23%;
@@ -66,8 +64,7 @@ page {
   background-color: #e93323;
   height: 40px;
   border: none;
-  -webkit-border-radius: 50px;
-          border-radius: 50px;
+  border-radius: 50px;
   line-height: 40px;
   color: #FFFFFF;
 }
@@ -85,8 +82,7 @@ page {
   margin-top: 10%;
 }
 .reseller .icon .ico {
-  -webkit-border-radius: 10px;
-          border-radius: 10px;
+  border-radius: 10px;
   border: 1px solid #C0C0C0;
   width: 49%;
   height: 100px;

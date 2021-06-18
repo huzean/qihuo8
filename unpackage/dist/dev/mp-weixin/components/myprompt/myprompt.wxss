@@ -1,0 +1,103 @@
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+.modal-container {
+  width: 520rpx;
+  background: #fff;
+  border-radius: 9px;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #5e017a;
+}
+.modal-header {
+  height: 140rpx;
+  font-size: 18px;
+  color: #000;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  margin-top: 30rpxpx;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+}
+.modal-header .title_name {
+  font-size: 12px;
+  margin-top: 20rpx;
+  font-weight: bold;
+  color: #5e017a;
+}
+.modal-footer {
+  height: 175rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  border-top: 1px solid #5e017a;
+  -webkit-justify-content: space-around;
+          justify-content: space-around;
+}
+.modal-footer .btn_cancel {
+  margin: 20rpx 0;
+}
+.modal-footer .btn {
+  margin-top: 20rpx;
+  font-size: 13px;
+  background: #5e017a;
+  padding: 8px 50rpx;
+  border-radius: 20px;
+  color: #fff;
+}
+.modal-main {
+  height: 120rpx;
+  padding: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+.modal-main .name_consume {
+  font-size: 13px;
+}
+.modal-main .name_num text:nth-child(1) {
+  font-size: 15px;
+  margin-top: 20rpx;
+  font-weight: bold;
+}
+.modal-main .name_num text:nth-child(2) {
+  font-size: 12px;
+  margin-left: 5px;
+}
+

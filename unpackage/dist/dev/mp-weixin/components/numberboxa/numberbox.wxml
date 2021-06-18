@@ -1,0 +1,1 @@
+<view><view data-event-opts="{{[['tap',[['plus',['$event']]]]]}}" class="name" bindtap="__e">加入询价</view></view>

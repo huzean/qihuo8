@@ -57,16 +57,13 @@
   line-height: 30px;
   width: 90px;
   text-align: center;
-  -webkit-border-radius: 20px;
-          border-radius: 20px;
+  border-radius: 20px;
   margin-top: 15px;
 }
 .record .list {
   margin: 15px 10px;
-  -webkit-box-shadow: 0px 0px 10px #EDEDED;
-          box-shadow: 0px 0px 10px #EDEDED;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
+  box-shadow: 0px 0px 10px #EDEDED;
+  border-radius: 5px;
   padding: 15px 10px;
 }
 .record .list .list_01 {

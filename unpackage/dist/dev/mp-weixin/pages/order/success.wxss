@@ -4,21 +4,17 @@
 	height: 260rpx;
 	background: -webkit-linear-gradient(70deg, #E41F19, #F34B0B);
 	background: linear-gradient(20deg, #E41F19, #F34B0B);
-	-webkit-border-bottom-left-radius: 42rpx;
-	        border-bottom-left-radius: 42rpx;
+	border-bottom-left-radius: 42rpx;
 }
 .tui-content {
 	padding: 0 35rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 }
 .tui-form {
 	background: #fff;
 	height: 500rpx;
-	-webkit-box-shadow: 0 10rpx 14rpx 0 rgba(0, 0, 0, 0.08);
-	        box-shadow: 0 10rpx 14rpx 0 rgba(0, 0, 0, 0.08);
-	-webkit-border-radius: 10rpx;
-	        border-radius: 10rpx;
+	box-shadow: 0 10rpx 14rpx 0 rgba(0, 0, 0, 0.08);
+	border-radius: 10rpx;
 	margin-top: -160rpx;
 	position: relative;
 	z-index: 10;
@@ -66,8 +62,7 @@
 .tui-tips {
 	font-size: 26rpx;
 	padding: 48rpx 90rpx;
-	-webkit-box-sizing: border-box;
-	        box-sizing: border-box;
+	box-sizing: border-box;
 	text-align: justify;
 	line-height: 48rpx;
 }

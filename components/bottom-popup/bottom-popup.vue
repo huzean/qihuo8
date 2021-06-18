@@ -24,7 +24,7 @@
 			//背景颜色
 			bgcolor: {
 				type: String,
-				default: "#fff"
+				default: ""
 			},
 			//高度 upx
 			height: {
@@ -72,7 +72,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: rgba(0, 0, 0, 0.6);
+		background: rgba(0, 0, 0, 0.3);
 		z-index: 99996;
 		transition: all 0.3s ease-in-out;
 		opacity: 0;
@@ -80,7 +80,7 @@
 	}
 
 	.tui-mask-show {
-		opacity: 1;
+		opacity: 0.5;
 		visibility: visible;
 	}
 </style>

@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "搜索",
-  "navigationBarBackgroundColor": "#fff",
-  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#5e0271",
+  "navigationBarTextStyle": "white",
   "backgroundColorTop": "#fff",
   "backgroundColorBottom": "#fff",
   "usingComponents": {

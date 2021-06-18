@@ -67,8 +67,7 @@ page {
   height: 140px;
   margin: 20rpx auto;
   background: #fff;
-  -webkit-border-radius: 15rpx;
-          border-radius: 15rpx;
+  border-radius: 15rpx;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -181,8 +180,7 @@ page {
   height: 25px;
   border: solid #f39d1d 1px;
   color: #f39d1d;
-  -webkit-border-radius: 25px;
-          border-radius: 25px;
+  border-radius: 25px;
   font-size: 13px;
   text-align: center;
 }
@@ -216,8 +214,7 @@ page {
   width: 20px;
   height: 20px;
   margin: 5px 5px 0 0;
-  -webkit-border-radius: 20px;
-          border-radius: 20px;
+  border-radius: 20px;
   color: red;
   float: right;
   border: solid red 1px;

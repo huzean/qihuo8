@@ -69,10 +69,8 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  -webkit-border-radius: 45rpx;
-          border-radius: 45rpx;
-  -webkit-border-radius: 36rpx;
-          border-radius: 36rpx;
+  border-radius: 45rpx;
+  border-radius: 36rpx;
   z-index: 10;
 }
 .canvas_box .canvas_close_btn {

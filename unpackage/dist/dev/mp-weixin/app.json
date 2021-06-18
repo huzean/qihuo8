@@ -24,9 +24,12 @@
     "pages/order/success",
     "pages/category/cate",
     "pages/enquirylist/enquiry",
+    "pages/rankinglist/ranking",
+    "pages/extend-view/detailpage/index",
+    "pages/extend-view/detailpage/myenquirydetail",
+    "pages/extend-view/detailpage/rate",
     "pages/makeoffers/make",
     "pages/makeoffers/detailpage",
-    "pages/makeoffers/anewprice",
     "pages/searhc/index",
     "pages/searhc/searchlist",
     "pages/xunjia/index",
@@ -48,7 +51,10 @@
     "pages/user/auth/login",
     "pages/user/auth/register",
     "pages/user/wallet/mywallet",
-    "pages/user/wallet/purchase"
+    "pages/user/wallet/purchase",
+    "pages/user/wallet/coin_log",
+    "pages/user/wallet/gift_log",
+    "pages/user/wallet/bill"
   ],
   "subPackages": [],
   "window": {
@@ -61,6 +67,5 @@
       "desc": "1212"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap17.json"
+  "usingComponents": {}
 }

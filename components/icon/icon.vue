@@ -49,9 +49,7 @@ export default {
   },
 };
 </script>
-
 <style>
-
 @charset "UTF-8";
 @font-face {
   font-family: "iconfont";

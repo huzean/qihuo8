@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#5e0271",
+  "navigationBarTitleText": "排行榜",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+}

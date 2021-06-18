@@ -4,14 +4,12 @@
 }
 .tui-box {
 		padding: 20rpx 0 118rpx;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 }
 .tui-address {
 		min-height: 80rpx;
 		padding: 10rpx 0;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 		position: relative;
 }
 .tui-userinfo {
@@ -49,8 +47,7 @@
 		        transform: scale(0.8);
 		-webkit-transform-origin: 0 center;
 		        transform-origin: 0 center;
-		-webkit-border-radius: 6rpx;
-		        border-radius: 6rpx;
+		border-radius: 6rpx;
 }
 .tui-bg-img {
 		position: absolute;
@@ -74,14 +71,12 @@
 		        align-items: center;
 }
 .tui-padding {
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 }
 .tui-goods-item {
 		width: 100%;
 		padding: 20rpx 30rpx;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: flex;
@@ -101,8 +96,7 @@
 		-webkit-flex: 1;
 		        flex: 1;
 		padding: 20rpx 8rpx;
-		-webkit-box-sizing: border-box;
-		        box-sizing: border-box;
+		box-sizing: border-box;
 }
 .tui-goods-name {
 		max-width: 310rpx;
@@ -239,8 +233,7 @@
 		-webkit-justify-content: flex-end;
 		        justify-content: flex-end;
 		font-size: 26rpx;
-		-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .3);
-		        box-shadow: 0 0 1px rgba(0, 0, 0, .3);
+		box-shadow: 0 0 1px rgba(0, 0, 0, .3);
 		padding-bottom: env(safe-area-inset-bottom);
 		z-index: 999;
 }
@@ -313,8 +306,7 @@
 			border: 1px solid #FA436A;
 			background-color: #FA436A;
 			color: #FFFFFF;
-			-webkit-border-radius: 20px;
-			        border-radius: 20px;
+			border-radius: 20px;
 			margin: 10px;
 			padding: 5px;
 }
@@ -411,8 +403,7 @@
 			border: 1px solid #FA436A;
 			background-color: #FA436A;
 			color: #FFFFFF;
-			-webkit-border-radius: 25px;
-			        border-radius: 25px;
+			border-radius: 25px;
 }
 .circle {
 			position: absolute;
@@ -422,8 +413,7 @@
 			width: 20rpx;
 			height: 20rpx;
 			background: #f3f3f3;
-			-webkit-border-radius: 100px;
-			        border-radius: 100px;
+			border-radius: 100px;
 }
 .r {
 			left: auto;

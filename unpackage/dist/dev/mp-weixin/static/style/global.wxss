@@ -1,0 +1,293 @@
+/*全局 底部tabbar 文字 */
+.tui-scale {
+  transform: scale(0.5);
+  transform-origin: center 100%;
+  line-height: 30rpx;
+  font-size: 48rpx !important;
+  font-weight: bold;
+}
+.s1 {
+  font-size: 18px;
+}
+.s2 {
+  font-size: 18px;
+}
+.s4 {
+  font-size: 18px;
+}
+.s5 {
+  font-size: 18px;
+}
+/* 底部弹窗 */
+.tui-popup-box {
+  position: relative;
+  border-radius: 15px !important;
+  background: #fff;
+}
+.name_rule {
+  position: absolute;
+  width: 100%;
+  height: 110px;
+  background: #fff;
+  top: 405rpx;
+  left: 0;
+}
+.tui-popup-btn {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  display: flex;
+  background: #fff;
+  border-top: solid #dadada 1px;
+}
+.tui-popup-btn .tui_button {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  color: #000;
+  align-items: center;
+}
+.tui-popup-btn .tui_button .nth_solide {
+  height: 50px;
+  margin-top: 5px;
+  border: solid #dadada 0.5px;
+}
+.tui-popup-btn .tui_button .nth-child {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 25px;
+}
+.tui-popup-btn .tui-btn-class {
+  width: 90% !important;
+  display: block !important;
+  font-size: 28rpx !important;
+}
+.tui-icon-close {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+.tui-product-popup-box {
+  display: flex;
+  align-items: flex-start;
+  font-size: 24rpx;
+}
+.tui-product-popup-box .popuo_item_box {
+  width: 100%;
+  height: 90px;
+  padding: 5px 10px;
+  display: flex;
+}
+.tui-product-popup-box .popuo_item_box .item_left {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tui-product-popup-box .popuo_item_box .item_left image {
+  width: 80px;
+}
+.tui-product-popup-box .popuo_item_box .item_right {
+  display: flex;
+  flex: 8;
+}
+.tui-product-popup-box .popuo_item_box .item_right .top_right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+.tui-product-popup-box .popuo_item_box .item_right .top_right .superstratum_item {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  background: linear-gradient(121deg, #ff0188 0%, #fe011d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tui-product-popup-box .popuo_item_box .item_right .top_right .substratum_item {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+.tui-product-popup-box .popuo_item_box .item_right .top_right .substratum_item text {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  font-size: 15px;
+  background: linear-gradient(0deg, #c33d9d 0%, #862b6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+.tui-product-popup-box .popuo_item_box .item_right .top_right .substratum_item text:nth-child(2) {
+  font-size: 12px;
+}
+.tui-product-popup-box .popuo_item_box .item_right .top_left {
+  flex: 3;
+}
+.tui-product-popup-box .popuo_item_box .item_right .top_left .top_left_name {
+  width: 120px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+}
+.tui-popup-img {
+  height: 200rpx;
+  width: 200rpx;
+  border-radius: 24rpx;
+  display: block;
+}
+.tui-popup-price {
+  flex: 3;
+  padding-left: 50rpx;
+  padding: 10px;
+}
+.tui-bold {
+  font-size: 32rpx;
+}
+.tui-amount {
+  color: #ff201f;
+  font-size: 36rpx;
+}
+.tui-number {
+  font-size: 24rpx;
+  line-height: 28rpx;
+  padding-top: 12rpx;
+  padding: 10rpx 0;
+  color: #000;
+  font-weight: bold;
+}
+.tui-number text {
+  color: #333;
+  margin-left: 40rpx;
+}
+.tui-popup-scroll-index {
+  height: 100%;
+  font-size: 26rpx;
+  background: #f0f2f5;
+}
+.tui-popup-scroll-detailpage {
+  font-size: 26rpx;
+  background: #f0f2f5;
+}
+.tui-scrollview-box {
+  border-top: solid #e7e7e7 1px;
+  box-sizing: border-box;
+}
+.tui-scrollview-box .bid_amount {
+  height: 55px;
+  background: #fff;
+  margin-top: 5px;
+  border-bottom: solid #dadada 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tui-scrollview-box .bid_amount .bid_amout_view {
+  display: flex;
+}
+.tui-scrollview-box .bid_amount .bid_amout_view text {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0px 10px;
+  color: #c33d9d;
+}
+.tui-scrollview-box .bid_amount .bid_amout_view .input {
+  font-size: 14px;
+  width: 220px;
+}
+.tui-scrollview-box .bid_amount .bid_amout_view .original {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.tui-scrollview-box .bid_amount .monetary_unit {
+  margin-right: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #c33d9d;
+}
+.my_integral {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  margin-top: 5px;
+  border-radius: 5px;
+  background: #fff;
+  margin-bottom: 150rpx;
+}
+.my_integral .integral_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px;
+  color: #c33d9d;
+}
+.my_integral .integral_item .rule_left text:nth-child(1) {
+  font-size: 16px;
+}
+.my_integral .integral_item .rule_left text:nth-child(2) {
+  color: #000;
+  font-size: 16px;
+  margin-left: 6px;
+  color: #c33d9d;
+}
+.my_integral .integral_item .rigth_rule {
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  color: #c33d9d;
+  font-weight: bold;
+}
+.my_integral .center_integral {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.my_integral .center_integral view:nth-child(1) {
+  font-size: 24px;
+  font-weight: bold;
+  color: #c33d9d;
+}
+.my_integral .center_integral view:nth-child(2) {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 5px 8px;
+  border: solid #c33d9d 1px;
+  font-weight: bold;
+  background: linear-gradient(0deg, #c33d9d 0%, #862b6e 100%);
+  border-radius: 6px;
+}
+.tui-attr-title {
+  width: 100%;
+  height: 60rpx;
+  padding: 10rpx 0;
+  background: red;
+  color: #000;
+}
+.tui-attr-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100rpx;
+  font-size: 0;
+  padding: 20rpx 0;
+  margin-top: 30rpx;
+  background: none;
+  border-radius: 25rpx;
+}
+.tui_button {
+  width: 100%;
+  background: #fff;
+  display: flex;
+}

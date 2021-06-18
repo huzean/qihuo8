@@ -1,0 +1,13 @@
+{
+  "navigationBarBackgroundColor": "#550266",
+  "navigationBarTitleText": "详情页",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "myprompt": "/components/myprompt/myprompt",
+    "tui-icon": "/components/icon/icon",
+    "tui-rate": "/components/rate/rate",
+    "tui-loadmore": "/components/loadmore/loadmore",
+    "tui-bottom-popup": "/components/bottom-popup/bottom-popup"
+  }
+}

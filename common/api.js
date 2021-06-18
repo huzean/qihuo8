@@ -10,9 +10,7 @@ var device_type = 'mobile'
 //#ifdef MP
 var device_type = 'wxapp'
 //#endif
-
 var app = getApp();
-
 var host = "http://120.79.191.222";  //替换为自己的域名,小程序需要https
 
 module.exports = {

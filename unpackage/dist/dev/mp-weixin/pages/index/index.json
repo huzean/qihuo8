@@ -5,7 +5,7 @@
   "navigationBarTextStyle": "white",
   "backgroundColorTop": "#FFF",
   "backgroundColorBottom": "#F7F7F7",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
   "usingComponents": {
     "tui-icon": "/components/icon/icon",

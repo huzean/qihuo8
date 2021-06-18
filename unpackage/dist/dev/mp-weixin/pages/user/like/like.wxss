@@ -68,8 +68,7 @@
   border: 1px solid #C0C0C0;
   height: 25px;
   width: 70px;
-  -webkit-border-radius: 15px;
-          border-radius: 15px;
+  border-radius: 15px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
           justify-content: center;

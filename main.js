@@ -8,7 +8,7 @@ import {Shop_app_key} from './common/config'	//店铺KEY
 import {shop_name} from './common/config'
 import {Map_App_key} from './common/config'//地图key
 import "./static/style/icon/iconfont.css";//全局阿里字体图标
-
+import "./static/style/global.less";//公共样式
 
 App.mpType = 'app'
 uni.getSystemInfo({

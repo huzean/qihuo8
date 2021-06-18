@@ -26,7 +26,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.3);
 	z-index: 99996;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
@@ -34,7 +34,7 @@
 	visibility: hidden;
 }
 .tui-mask-show {
-	opacity: 1;
+	opacity: 0.5;
 	visibility: visible;
 }
 

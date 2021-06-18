@@ -57,8 +57,7 @@
 .sort .t_01_2 ._img {
   width: 30px;
   height: 30px;
-  -webkit-border-radius: 30px;
-          border-radius: 30px;
+  border-radius: 30px;
   margin-right: 10px;
 }
 .sort .t ._li:nth-of-type(odd) {

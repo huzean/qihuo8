@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "充值销币",
   "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#5e0271",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "tui-list-cell": "/components/list-cell/list-cell",
     "tui-button": "/components/extend/button/button"

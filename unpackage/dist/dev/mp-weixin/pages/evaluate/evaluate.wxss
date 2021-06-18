@@ -59,8 +59,7 @@
 .evaluate .con_1_l ._img {
   height: 40px;
   width: 40px;
-  -webkit-border-radius: 30px;
-          border-radius: 30px;
+  border-radius: 30px;
   margin-right: 10px;
 }
 .evaluate .name {
@@ -85,8 +84,7 @@
 .evaluate .con_2 .img ._img {
   width: 24vw;
   height: 19vw;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
+  border-radius: 5px;
   margin: 0 2vw 10px 0;
 }
 

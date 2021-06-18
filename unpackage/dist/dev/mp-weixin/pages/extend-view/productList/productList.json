@@ -8,7 +8,7 @@
   "navigationStyle": "custom",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "tui-numberbox": "/components/numberbox/numberbox",
+    "tui-numberbox": "/components/numberboxa/numberbox",
     "tui-icon": "/components/icon/icon",
     "tui-drawer": "/components/drawer/drawer",
     "tui-loadmore": "/components/loadmore/loadmore",

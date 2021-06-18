@@ -25,8 +25,7 @@
 	-webkit-justify-content: center;
 	        justify-content: center;
 	height: 44rpx;
-	-webkit-border-radius: 6rpx;
-	        border-radius: 6rpx;
+	border-radius: 6rpx;
 	margin: 0 5rpx;
 	font-size: 28rpx;
 	border: 1px solid #000;

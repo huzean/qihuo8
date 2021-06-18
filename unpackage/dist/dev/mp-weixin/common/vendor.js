@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createPlugin = createPlugin;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 
 var _toString = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -241,7 +241,7 @@ var promiseInterceptor = {
 
 
 var SYNC_API_RE =
-/^\$|sendNativeEvent|restoreGlobal|getCurrentSubNVue|getMenuButtonBoundingClientRect|^report|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
+/^\$|Window$|WindowStyle$|sendNativeEvent|restoreGlobal|getCurrentSubNVue|getMenuButtonBoundingClientRect|^report|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -363,112 +363,7 @@ var baseApi = /*#__PURE__*/Object.freeze({
   upx2px: upx2px,
   addInterceptor: addInterceptor,
   removeInterceptor: removeInterceptor,
-  interceptors: interceptors });var
-
-
-EventChannel = /*#__PURE__*/function () {
-  function EventChannel(id, events) {var _this = this;_classCallCheck(this, EventChannel);
-    this.id = id;
-    this.listener = {};
-    this.emitCache = {};
-    if (events) {
-      Object.keys(events).forEach(function (name) {
-        _this.on(name, events[name]);
-      });
-    }
-  }_createClass(EventChannel, [{ key: "emit", value: function emit(
-
-    eventName) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
-      var fns = this.listener[eventName];
-      if (!fns) {
-        return (this.emitCache[eventName] || (this.emitCache[eventName] = [])).push(args);
-      }
-      fns.forEach(function (opt) {
-        opt.fn.apply(opt.fn, args);
-      });
-      this.listener[eventName] = fns.filter(function (opt) {return opt.type !== 'once';});
-    } }, { key: "on", value: function on(
-
-    eventName, fn) {
-      this._addListener(eventName, 'on', fn);
-      this._clearCache(eventName);
-    } }, { key: "once", value: function once(
-
-    eventName, fn) {
-      this._addListener(eventName, 'once', fn);
-      this._clearCache(eventName);
-    } }, { key: "off", value: function off(
-
-    eventName, fn) {
-      var fns = this.listener[eventName];
-      if (!fns) {
-        return;
-      }
-      if (fn) {
-        for (var i = 0; i < fns.length;) {
-          if (fns[i].fn === fn) {
-            fns.splice(i, 1);
-            i--;
-          }
-          i++;
-        }
-      } else {
-        delete this.listener[eventName];
-      }
-    } }, { key: "_clearCache", value: function _clearCache(
-
-    eventName) {
-      var cacheArgs = this.emitCache[eventName];
-      if (cacheArgs) {
-        for (; cacheArgs.length > 0;) {
-          this.emit.apply(this, [eventName].concat(cacheArgs.shift()));
-        }
-      }
-    } }, { key: "_addListener", value: function _addListener(
-
-    eventName, type, fn) {
-      (this.listener[eventName] || (this.listener[eventName] = [])).push({
-        fn: fn,
-        type: type });
-
-    } }]);return EventChannel;}();
-
-
-var eventChannels = {};
-
-var eventChannelStack = [];
-
-var id = 0;
-
-function initEventChannel(events) {var cache = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-  id++;
-  var eventChannel = new EventChannel(id, events);
-  if (cache) {
-    eventChannels[id] = eventChannel;
-    eventChannelStack.push(eventChannel);
-  }
-  return eventChannel;
-}
-
-function getEventChannel(id) {
-  if (id) {
-    var eventChannel = eventChannels[id];
-    delete eventChannels[id];
-    return eventChannel;
-  }
-  return eventChannelStack.shift();
-}
-
-var navigateTo = {
-  args: function args(fromArgs, toArgs) {
-    var id = initEventChannel(fromArgs.events).id;
-    if (fromArgs.url) {
-      fromArgs.url = fromArgs.url + (fromArgs.url.indexOf('?') === -1 ? '?' : '&') + '__id__=' + id;
-    }
-  },
-  returnValue: function returnValue(fromRes, toRes) {
-    fromRes.eventChannel = getEventChannel();
-  } };
+  interceptors: interceptors });
 
 
 function findExistsPageIndex(url) {
@@ -537,6 +432,20 @@ var previewImage = {
   } };
 
 
+var UUID_KEY = '__DC_STAT_UUID';
+var deviceId;
+function addUuid(result) {
+  deviceId = deviceId || wx.getStorageSync(UUID_KEY);
+  if (!deviceId) {
+    deviceId = Date.now() + '' + Math.floor(Math.random() * 1e7);
+    wx.setStorage({
+      key: UUID_KEY,
+      data: deviceId });
+
+  }
+  result.deviceId = deviceId;
+}
+
 function addSafeAreaInsets(result) {
   if (result.safeArea) {
     var safeArea = result.safeArea;
@@ -548,16 +457,22 @@ function addSafeAreaInsets(result) {
 
   }
 }
+
+var getSystemInfo = {
+  returnValue: function returnValue(result) {
+    addUuid(result);
+    addSafeAreaInsets(result);
+  } };
+
+
+// import navigateTo from 'uni-helpers/navigate-to'
+
 var protocols = {
   redirectTo: redirectTo,
-  navigateTo: navigateTo,
+  // navigateTo,  // 由于在微信开发者工具的页面参数，会显示__id__参数，因此暂时关闭mp-weixin对于navigateTo的AOP
   previewImage: previewImage,
-  getSystemInfo: {
-    returnValue: addSafeAreaInsets },
-
-  getSystemInfoSync: {
-    returnValue: addSafeAreaInsets } };
-
+  getSystemInfo: getSystemInfo,
+  getSystemInfoSync: getSystemInfo };
 
 var todos = [
 'vibrate',
@@ -588,7 +503,7 @@ function processArgs(methodName, fromArgs) {var argsOption = arguments.length > 
           keyOption = keyOption(fromArgs[key], fromArgs, toArgs);
         }
         if (!keyOption) {// 不支持的参数
-          console.warn("\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F ".concat(methodName, "\u6682\u4E0D\u652F\u6301").concat(key));
+          console.warn("The '".concat(methodName, "' method of platform '\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F' does not support option '").concat(key, "'"));
         } else if (isStr(keyOption)) {// 重写参数 key
           toArgs[keyOption] = fromArgs[key];
         } else if (isPlainObject(keyOption)) {// {name:newName,value:value}可重新指定参数 key:value
@@ -623,7 +538,7 @@ function wrapper(methodName, method) {
     var protocol = protocols[methodName];
     if (!protocol) {// 暂不支持的 api
       return function () {
-        console.error("\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F \u6682\u4E0D\u652F\u6301".concat(methodName));
+        console.error("Platform '\u5FAE\u4FE1\u5C0F\u7A0B\u5E8F' does not support '".concat(methodName, "'."));
       };
     }
     return function (arg1, arg2) {// 目前 api 最多两个参数
@@ -670,7 +585,7 @@ function createTodoApi(name) {
 
   {var fail = _ref.fail,complete = _ref.complete;
     var res = {
-      errMsg: "".concat(name, ":fail:\u6682\u4E0D\u652F\u6301 ").concat(name, " \u65B9\u6CD5") };
+      errMsg: "".concat(name, ":fail method '").concat(name, "' not supported") };
 
     isFn(fail) && fail(res);
     isFn(complete) && complete(res);
@@ -704,7 +619,7 @@ function getProvider(_ref2)
     isFn(success) && success(res);
   } else {
     res = {
-      errMsg: 'getProvider:fail:服务[' + service + ']不存在' };
+      errMsg: 'getProvider:fail service not found' };
 
     isFn(fail) && fail(res);
   }
@@ -766,12 +681,12 @@ var customize = cached(function (str) {
 
 function initTriggerEvent(mpInstance) {
   {
-    if (!wx.canIUse('nextTick')) {
+    if (!wx.canIUse || !wx.canIUse('nextTick')) {
       return;
     }
   }
   var oldTriggerEvent = mpInstance.triggerEvent;
-  mpInstance.triggerEvent = function (event) {for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {args[_key4 - 1] = arguments[_key4];}
+  mpInstance.triggerEvent = function (event) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
     return oldTriggerEvent.apply(mpInstance, [customize(event)].concat(args));
   };
 }
@@ -784,21 +699,24 @@ function initHook(name, options) {
     };
   } else {
     options[name] = function () {
-      initTriggerEvent(this);for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {args[_key5] = arguments[_key5];}
+      initTriggerEvent(this);for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {args[_key4] = arguments[_key4];}
       return oldHook.apply(this, args);
     };
   }
 }
+if (!MPPage.__$wrappered) {
+  MPPage.__$wrappered = true;
+  Page = function Page() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    initHook('onLoad', options);
+    return MPPage(options);
+  };
+  Page.after = MPPage.after;
 
-Page = function Page() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  initHook('onLoad', options);
-  return MPPage(options);
-};
-
-Component = function Component() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  initHook('created', options);
-  return MPComponent(options);
-};
+  Component = function Component() {var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    initHook('created', options);
+    return MPComponent(options);
+  };
+}
 
 var PAGE_EVENT_HOOKS = [
 'onPullDownRefresh',
@@ -1252,7 +1170,7 @@ function getContextVm(vm) {
   return $parent && $parent.$parent;
 }
 
-function handleEvent(event) {var _this2 = this;
+function handleEvent(event) {var _this = this;
   event = wrapper$1(event);
 
   // [['tap',[['handle',[1,2,a]],['handle1',[1,2,a]]]]]
@@ -1283,14 +1201,14 @@ function handleEvent(event) {var _this2 = this;
       eventsArray.forEach(function (eventArray) {
         var methodName = eventArray[0];
         if (methodName) {
-          var handlerCtx = _this2.$vm;
+          var handlerCtx = _this.$vm;
           if (handlerCtx.$options.generic) {// mp-weixin,mp-toutiao 抽象节点模拟 scoped slots
             handlerCtx = getContextVm(handlerCtx) || handlerCtx;
           }
           if (methodName === '$emit') {
             handlerCtx.$emit.apply(handlerCtx,
             processEventArgs(
-            _this2.$vm,
+            _this.$vm,
             event,
             eventArray[1],
             eventArray[2],
@@ -1310,16 +1228,20 @@ function handleEvent(event) {var _this2 = this;
             handler.once = true;
           }
           var params = processEventArgs(
-          _this2.$vm,
+          _this.$vm,
           event,
           eventArray[1],
           eventArray[2],
           isCustom,
           methodName);
 
+          params = Array.isArray(params) ? params : [];
           // 参数尾部增加原始事件对象用于复杂表达式内获取额外数据
-          // eslint-disable-next-line no-sparse-arrays
-          ret.push(handler.apply(handlerCtx, (Array.isArray(params) ? params : []).concat([,,,,,,,,,, event])));
+          if (/=\s*\S+\.eventParams\s*\|\|\s*\S+\[['"]event-params['"]\]/.test(handler.toString())) {
+            // eslint-disable-next-line no-sparse-arrays
+            params = params.concat([,,,,,,,,,, event]);
+          }
+          ret.push(handler.apply(handlerCtx, params));
         }
       });
     }
@@ -1334,6 +1256,19 @@ function handleEvent(event) {var _this2 = this;
   }
 }
 
+var eventChannels = {};
+
+var eventChannelStack = [];
+
+function getEventChannel(id) {
+  if (id) {
+    var eventChannel = eventChannels[id];
+    delete eventChannels[id];
+    return eventChannel;
+  }
+  return eventChannelStack.shift();
+}
+
 var hooks = [
 'onShow',
 'onHide',
@@ -1343,10 +1278,80 @@ var hooks = [
 'onUnhandledRejection'];
 
 
+function initEventChannel() {
+  _vue.default.prototype.getOpenerEventChannel = function () {
+    // 微信小程序使用自身getOpenerEventChannel
+    {
+      return this.$scope.getOpenerEventChannel();
+    }
+  };
+  var callHook = _vue.default.prototype.__call_hook;
+  _vue.default.prototype.__call_hook = function (hook, args) {
+    if (hook === 'onLoad' && args && args.__id__) {
+      this.__eventChannel__ = getEventChannel(args.__id__);
+      delete args.__id__;
+    }
+    return callHook.call(this, hook, args);
+  };
+}
+
+function initScopedSlotsParams() {
+  var center = {};
+  var parents = {};
+
+  _vue.default.prototype.$hasScopedSlotsParams = function (vueId) {
+    var has = center[vueId];
+    if (!has) {
+      parents[vueId] = this;
+      this.$on('hook:destory', function () {
+        delete parents[vueId];
+      });
+    }
+    return has;
+  };
+
+  _vue.default.prototype.$getScopedSlotsParams = function (vueId, name, key) {
+    var data = center[vueId];
+    if (data) {
+      var object = data[name] || {};
+      return key ? object[key] : object;
+    } else {
+      parents[vueId] = this;
+      this.$on('hook:destory', function () {
+        delete parents[vueId];
+      });
+    }
+  };
+
+  _vue.default.prototype.$setScopedSlotsParams = function (name, value) {
+    var vueId = this.$options.propsData.vueId;
+    var object = center[vueId] = center[vueId] || {};
+    object[name] = value;
+    if (parents[vueId]) {
+      parents[vueId].$forceUpdate();
+    }
+  };
+
+  _vue.default.mixin({
+    destroyed: function destroyed() {
+      var propsData = this.$options.propsData;
+      var vueId = propsData && propsData.vueId;
+      if (vueId) {
+        delete center[vueId];
+        delete parents[vueId];
+      }
+    } });
+
+}
+
 function parseBaseApp(vm, _ref3)
 
 
 {var mocks = _ref3.mocks,initRefs = _ref3.initRefs;
+  initEventChannel();
+  {
+    initScopedSlotsParams();
+  }
   if (vm.$options.store) {
     _vue.default.prototype.$store = vm.$options.store;
   }
@@ -1370,7 +1375,12 @@ function parseBaseApp(vm, _ref3)
 
       delete this.$options.mpType;
       delete this.$options.mpInstance;
-
+      if (this.mpType === 'page' && typeof getApp === 'function') {// hack vue-i18n
+        var app = getApp();
+        if (app.$vm && app.$vm.$i18n) {
+          this._i18n = app.$vm.$i18n;
+        }
+      }
       if (this.mpType !== 'app') {
         initRefs(this);
         initMocks(this, mocks);
@@ -1384,7 +1394,7 @@ function parseBaseApp(vm, _ref3)
         return;
       }
       {
-        if (!wx.canIUse('nextTick')) {// 事实 上2.2.3 即可，简单使用 2.3.0 的 nextTick 判断
+        if (wx.canIUse && !wx.canIUse('nextTick')) {// 事实 上2.2.3 即可，简单使用 2.3.0 的 nextTick 判断
           console.error('当前微信基础库版本过低，请将 微信开发者工具-详情-项目设置-调试基础库版本 更换为`2.3.0`以上');
         }
       }
@@ -1454,16 +1464,28 @@ function initRelation(detail) {
   this.triggerEvent('__l', detail);
 }
 
+function selectAllComponents(mpInstance, selector, $refs) {
+  var components = mpInstance.selectAllComponents(selector);
+  components.forEach(function (component) {
+    var ref = component.dataset.ref;
+    $refs[ref] = component.$vm || component;
+    {
+      if (component.dataset.vueGeneric === 'scoped') {
+        component.selectAllComponents('.scoped-ref').forEach(function (scopedComponent) {
+          selectAllComponents(scopedComponent, selector, $refs);
+        });
+      }
+    }
+  });
+}
+
 function initRefs(vm) {
   var mpInstance = vm.$scope;
   Object.defineProperty(vm, '$refs', {
     get: function get() {
       var $refs = {};
-      var components = mpInstance.selectAllComponents('.vue-ref');
-      components.forEach(function (component) {
-        var ref = component.dataset.ref;
-        $refs[ref] = component.$vm || component;
-      });
+      selectAllComponents(mpInstance, '.vue-ref', $refs);
+      // TODO 暂不考虑 for 中的 scoped
       var forComponents = mpInstance.selectAllComponents('.vue-ref-in-for');
       forComponents.forEach(function (component) {
         var ref = component.dataset.ref;
@@ -1504,20 +1526,6 @@ function parseApp(vm) {
 }
 
 function createApp(vm) {
-  _vue.default.prototype.getOpenerEventChannel = function () {
-    if (!this.__eventChannel__) {
-      this.__eventChannel__ = new EventChannel();
-    }
-    return this.__eventChannel__;
-  };
-  var callHook = _vue.default.prototype.__call_hook;
-  _vue.default.prototype.__call_hook = function (hook, args) {
-    if (hook === 'onLoad' && args && args.__id__) {
-      this.__eventChannel__ = getEventChannel(args.__id__);
-      delete args.__id__;
-    }
-    return callHook.call(this, hook, args);
-  };
   App(parseApp(vm));
   return vm;
 }
@@ -1720,6 +1728,60 @@ function createComponent(vueOptions) {
   }
 }
 
+function createSubpackageApp(vm) {
+  var appOptions = parseApp(vm);
+  var app = getApp({
+    allowDefault: true });
+
+  var globalData = app.globalData;
+  if (globalData) {
+    Object.keys(appOptions.globalData).forEach(function (name) {
+      if (!hasOwn(globalData, name)) {
+        globalData[name] = appOptions.globalData[name];
+      }
+    });
+  }
+  Object.keys(appOptions).forEach(function (name) {
+    if (!hasOwn(app, name)) {
+      app[name] = appOptions[name];
+    }
+  });
+  if (isFn(appOptions.onShow) && wx.onAppShow) {
+    wx.onAppShow(function () {for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {args[_key5] = arguments[_key5];}
+      appOptions.onShow.apply(app, args);
+    });
+  }
+  if (isFn(appOptions.onHide) && wx.onAppHide) {
+    wx.onAppHide(function () {for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {args[_key6] = arguments[_key6];}
+      appOptions.onHide.apply(app, args);
+    });
+  }
+  if (isFn(appOptions.onLaunch)) {
+    var args = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync();
+    appOptions.onLaunch.call(app, args);
+  }
+  return vm;
+}
+
+function createPlugin(vm) {
+  var appOptions = parseApp(vm);
+  if (isFn(appOptions.onShow) && wx.onAppShow) {
+    wx.onAppShow(function () {for (var _len7 = arguments.length, args = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {args[_key7] = arguments[_key7];}
+      appOptions.onShow.apply(vm, args);
+    });
+  }
+  if (isFn(appOptions.onHide) && wx.onAppHide) {
+    wx.onAppHide(function () {for (var _len8 = arguments.length, args = new Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {args[_key8] = arguments[_key8];}
+      appOptions.onHide.apply(vm, args);
+    });
+  }
+  if (isFn(appOptions.onLaunch)) {
+    var args = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync();
+    appOptions.onLaunch.call(vm, args);
+  }
+  return vm;
+}
+
 todos.forEach(function (todoApi) {
   protocols[todoApi] = false;
 });
@@ -1799,6 +1861,8 @@ if (typeof Proxy !== 'undefined' && "mp-weixin" !== 'app-plus') {
 wx.createApp = createApp;
 wx.createPage = createPage;
 wx.createComponent = createComponent;
+wx.createSubpackageApp = createSubpackageApp;
+wx.createPlugin = createPlugin;
 
 var uni$1 = uni;var _default =
 
@@ -1807,9 +1871,9 @@ uni$1;exports.default = _default;
 /***/ }),
 
 /***/ 10:
-/*!**********************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/common/wx_token.js ***!
-  \**********************************************************/
+/*!***********************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/common/wx_token.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2049,9 +2113,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 14:
-/*!*******************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/common/axios.js ***!
-  \*******************************************************/
+/*!********************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/common/axios.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2923,16 +2987,16 @@ if (hadRuntime) {
 /***/ }),
 
 /***/ 18:
-/*!*******************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/common/ccapi.js ***!
-  \*******************************************************/
+/*!********************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/common/ccapi.js ***!
+  \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 15));var _ccrequest = _interopRequireDefault(__webpack_require__(/*! ./ccrequest.js */ 19));
-var _config = __webpack_require__(/*! ./config */ 9);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
-{
+var _config = __webpack_require__(/*! ./config */ 9);var _register$log_in$get_;function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default = (_register$log_in$get_ = {
+
   /**start user*/
   /*
                   用户注册
@@ -3096,12 +3160,12 @@ var _config = __webpack_require__(/*! ./config */ 9);function _interopRequireDef
   /*增加和修改地址信息
      参数：data:{
      	areacode: ""
-            city: "广州市"
-            district: "海珠区"
-            detail: "小区28号"
-            phone: "18523567498"
-            name: "测试员"
-            province: "广东省"}
+     	city: "广州市"
+     	district: "海珠区"
+     	detail: "小区28号"
+     	phone: "18523567498"
+     	name: "测试员"
+     	province: "广东省"}
      */
   edit_address: function edit_address(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee30() {var res;return _regenerator.default.wrap(function _callee30$(_context30) {while (1) {switch (_context30.prev = _context30.next) {case 0:_context30.next = 2;return (
                 _ccrequest.default.post('address/address_manage', data));case 2:res = _context30.sent;return _context30.abrupt("return",
@@ -3155,14 +3219,14 @@ var _config = __webpack_require__(/*! ./config */ 9);function _interopRequireDef
 
   /*当前客户获取订单列表
      订单状态
-     0 未支付
-     1 待发货
-     2 待收货
-     3 待评价
-     4 已完成
-     -1 退款中
-     -2 已退款
-     -3 退款
+       0 未支付
+       1 待发货
+       2 待收货
+       3 待评价
+       4 已完成
+       -1 退款中
+       -2 已退款
+       -3 退款
       */
   order_get_list: function order_get_list(data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee37() {var res;return _regenerator.default.wrap(function _callee37$(_context37) {while (1) {switch (_context37.prev = _context37.next) {case 0:_context37.next = 2;return (
                 _ccrequest.default.get('order/list', data));case 2:res = _context37.sent;return _context37.abrupt("return",
@@ -3172,6 +3236,7 @@ var _config = __webpack_require__(/*! ./config */ 9);function _interopRequireDef
   order_get_detail: function order_get_detail(order_id) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee38() {var res;return _regenerator.default.wrap(function _callee38$(_context38) {while (1) {switch (_context38.prev = _context38.next) {case 0:_context38.next = 2;return (
                 _ccrequest.default.get('order/detail/' + order_id));case 2:res = _context38.sent;return _context38.abrupt("return",
               res);case 4:case "end":return _context38.stop();}}}, _callee38);}))();
+
   },
   /*获取用户订单统计*/
   order_get_data: function order_get_data() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee39() {var res;return _regenerator.default.wrap(function _callee39$(_context39) {while (1) {switch (_context39.prev = _context39.next) {case 0:_context39.next = 2;return (
@@ -3264,17 +3329,130 @@ var _config = __webpack_require__(/*! ./config */ 9);function _interopRequireDef
   get_cart_count: function get_cart_count() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee56() {var res;return _regenerator.default.wrap(function _callee56$(_context56) {while (1) {switch (_context56.prev = _context56.next) {case 0:_context56.next = 2;return (
                 _ccrequest.default.get('cart/count'));case 2:res = _context56.sent;return _context56.abrupt("return",
               res);case 4:case "end":return _context56.stop();}}}, _callee56);}))();
-  }
+  },
+  /*end shopping cart manage*/
+
+  /*start 积分充值类*/
+  /*购买积分*/
+  buy_coin: function buy_coin(recharge_type_id) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee57() {var res;return _regenerator.default.wrap(function _callee57$(_context57) {while (1) {switch (_context57.prev = _context57.next) {case 0:_context57.next = 2;return (
+                _ccrequest.default.post('ccy/buy_coin', recharge_type_id));case 2:res = _context57.sent;return _context57.abrupt("return",
+              res);case 4:case "end":return _context57.stop();}}}, _callee57);}))();
+  },
+  /*获取购买积分列表*/
+  get_recharge_type_list: function get_recharge_type_list() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee58() {var res;return _regenerator.default.wrap(function _callee58$(_context58) {while (1) {switch (_context58.prev = _context58.next) {case 0:_context58.next = 2;return (
+                _ccrequest.default.get('ccy/recharge_type_list'));case 2:res = _context58.sent;return _context58.abrupt("return",
+              res);case 4:case "end":return _context58.stop();}}}, _callee58);}))();
+  },
+  /*获取花费积分类型列表*/
+  get_credit_type_list: function get_credit_type_list() {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee59() {var res;return _regenerator.default.wrap(function _callee59$(_context59) {while (1) {switch (_context59.prev = _context59.next) {case 0:_context59.next = 2;return (
+                _ccrequest.default.get('ccy/credit_type_list'));case 2:res = _context59.sent;return _context59.abrupt("return",
+              res);case 4:case "end":return _context59.stop();}}}, _callee59);}))();
+  },
+  /*end 积分充值类*/
+
+  /*询价信息类*/
+  /*关注或点赞询价信息*/
+  add_en_relation: function add_en_relation(eid, relation_type) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee60() {var res;return _regenerator.default.wrap(function _callee60$(_context60) {while (1) {switch (_context60.prev = _context60.next) {case 0:_context60.next = 2;return (
+                _ccrequest.default.post('ccy/add_en_relation', { eid: eid, relation_type: relation_type }));case 2:res = _context60.sent;return _context60.abrupt("return",
+              res);case 4:case "end":return _context60.stop();}}}, _callee60);}))();
+  },
+  //查看报价排名
+  quote_rank: function quote_rank(eid) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee61() {var res;return _regenerator.default.wrap(function _callee61$(_context61) {while (1) {switch (_context61.prev = _context61.next) {case 0:_context61.next = 2;return (
+                _ccrequest.default.post('ccy/quote_rank', { eid: eid }));case 2:res = _context61.sent;return _context61.abrupt("return",
+              res);case 4:case "end":return _context61.stop();}}}, _callee61);}))();
+  },
+  //取消关注或取消点赞询价信息
+  cancel_en_relation: function cancel_en_relation(eid, cid, relation_type) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee62() {var res;return _regenerator.default.wrap(function _callee62$(_context62) {while (1) {switch (_context62.prev = _context62.next) {case 0:_context62.next = 2;return (
+                _ccrequest.default.post('ccy/cancel_en_relation', { eid: eid, cid: cid, relation_type: relation_type }));case 2:res = _context62.sent;return _context62.abrupt("return",
+              res);case 4:case "end":return _context62.stop();}}}, _callee62);}))();
+  },
+  //提交报价
+  quote: function quote(eid, quote_amount) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee63() {var res;return _regenerator.default.wrap(function _callee63$(_context63) {while (1) {switch (_context63.prev = _context63.next) {case 0:_context63.next = 2;return (
+                _ccrequest.default.post('ccy/quote', { eid: eid, quote_amount: quote_amount }));case 2:res = _context63.sent;return _context63.abrupt("return",
+              res);case 4:case "end":return _context63.stop();}}}, _callee63);}))();
+  } }, _defineProperty(_register$log_in$get_, "quote_rank", function quote_rank(
+
+eid) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee64() {var res;return _regenerator.default.wrap(function _callee64$(_context64) {while (1) {switch (_context64.prev = _context64.next) {case 0:_context64.next = 2;return (
+              _ccrequest.default.get('ccy/quote_rank', { eid: eid }));case 2:res = _context64.sent;return _context64.abrupt("return",
+            res);case 4:case "end":return _context64.stop();}}}, _callee64);}))();
+}), _defineProperty(_register$log_in$get_, "quote_change", function quote_change(
+
+eid, quote_amount) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee65() {var res;return _regenerator.default.wrap(function _callee65$(_context65) {while (1) {switch (_context65.prev = _context65.next) {case 0:_context65.next = 2;return (
+              _ccrequest.default.post('ccy/quote_change', { eid: eid, quote_amount: quote_amount }));case 2:res = _context65.sent;return _context65.abrupt("return",
+            res);case 4:case "end":return _context65.stop();}}}, _callee65);}))();
+}), _defineProperty(_register$log_in$get_, "open_quote", function open_quote(
+
+qid) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee66() {var res;return _regenerator.default.wrap(function _callee66$(_context66) {while (1) {switch (_context66.prev = _context66.next) {case 0:_context66.next = 2;return (
+              _ccrequest.default.post('ccy/open_quote', { qid: qid }));case 2:res = _context66.sent;case 3:case "end":return _context66.stop();}}}, _callee66);}))();
+}), _defineProperty(_register$log_in$get_, "submit_enquiry", function submit_enquiry(
+
+product_list, delivery_deadline, valid_period, address_id, credit_type, note) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee67() {var res;return _regenerator.default.wrap(function _callee67$(_context67) {while (1) {switch (_context67.prev = _context67.next) {case 0:_context67.next = 2;return (
+              _ccrequest.default.post('ccy/submit_enquiry',
+              {
+                product_list: product_list,
+                delivery_deadline: delivery_deadline,
+                valid_period: valid_period,
+                address_id: address_id,
+                credit_type: credit_type,
+                note: note }));case 2:res = _context67.sent;return _context67.abrupt("return",
+
+            res);case 4:case "end":return _context67.stop();}}}, _callee67);}))();
+}), _defineProperty(_register$log_in$get_, "enquiry_list", function enquiry_list(
+
+type, page, limit, search) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee68() {var res;return _regenerator.default.wrap(function _callee68$(_context68) {while (1) {switch (_context68.prev = _context68.next) {case 0:_context68.next = 2;return (
+              _ccrequest.default.get('ccy/enquiry_list', { type: type, page: page, limit: limit, search: search }));case 2:res = _context68.sent;return _context68.abrupt("return",
+            res);case 4:case "end":return _context68.stop();}}}, _callee68);}))();
+}), _defineProperty(_register$log_in$get_, "enquiry_index", function enquiry_index(
+
+data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee69() {var res;return _regenerator.default.wrap(function _callee69$(_context69) {while (1) {switch (_context69.prev = _context69.next) {case 0:_context69.next = 2;return (
+              _ccrequest.default.get('ccy/enquiry_index', data));case 2:res = _context69.sent;return _context69.abrupt("return",
+            res);case 4:case "end":return _context69.stop();}}}, _callee69);}))();
+}), _defineProperty(_register$log_in$get_, "enquiry_detail", function enquiry_detail(
+
+eid) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee70() {var res;return _regenerator.default.wrap(function _callee70$(_context70) {while (1) {switch (_context70.prev = _context70.next) {case 0:_context70.next = 2;return (
+              _ccrequest.default.get('ccy/enquiry_detail', { eid: eid }));case 2:res = _context70.sent;return _context70.abrupt("return",
+            res);case 4:case "end":return _context70.stop();}}}, _callee70);}))();
+}), _defineProperty(_register$log_in$get_, "my_enquiry_detail", function my_enquiry_detail(
 
 
-  /*end shopping cart manage*/ };exports.default = _default;
+eid) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee71() {var res;return _regenerator.default.wrap(function _callee71$(_context71) {while (1) {switch (_context71.prev = _context71.next) {case 0:_context71.next = 2;return (
+              _ccrequest.default.get('ccy/my_enquiry_detail', { eid: eid }));case 2:res = _context71.sent;return _context71.abrupt("return",
+            res);case 4:case "end":return _context71.stop();}}}, _callee71);}))();
+}), _defineProperty(_register$log_in$get_, "user_auth_apply", function user_auth_apply(
+
+
+data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee72() {var res;return _regenerator.default.wrap(function _callee72$(_context72) {while (1) {switch (_context72.prev = _context72.next) {case 0:_context72.next = 2;return (
+              _ccrequest.default.post("ccy/user_auth_apply", data));case 2:res = _context72.sent;return _context72.abrupt("return",
+            res);case 4:case "end":return _context72.stop();}}}, _callee72);}))();
+}), _defineProperty(_register$log_in$get_, "get_cust_info", function get_cust_info()
+
+{return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee73() {var res;return _regenerator.default.wrap(function _callee73$(_context73) {while (1) {switch (_context73.prev = _context73.next) {case 0:_context73.next = 2;return (
+              _ccrequest.default.get("ccy/get_cust_info"));case 2:res = _context73.sent;return _context73.abrupt("return",
+            res);case 4:case "end":return _context73.stop();}}}, _callee73);}))();
+}), _defineProperty(_register$log_in$get_, "get_user_coin_log", function get_user_coin_log(
+
+
+data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee74() {var res;return _regenerator.default.wrap(function _callee74$(_context74) {while (1) {switch (_context74.prev = _context74.next) {case 0:_context74.next = 2;return (
+              _ccrequest.default.get("ccy/get_user_coin_log", data));case 2:res = _context74.sent;return _context74.abrupt("return",
+            res);case 4:case "end":return _context74.stop();}}}, _callee74);}))();
+}), _defineProperty(_register$log_in$get_, "get_user_gift_log", function get_user_gift_log(
+
+data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee75() {var res;return _regenerator.default.wrap(function _callee75$(_context75) {while (1) {switch (_context75.prev = _context75.next) {case 0:_context75.next = 2;return (
+              _ccrequest.default.get("ccy/get_user_gift_log", data));case 2:res = _context75.sent;return _context75.abrupt("return",
+            res);case 4:case "end":return _context75.stop();}}}, _callee75);}))();
+}), _defineProperty(_register$log_in$get_, "get_user_bill_log", function get_user_bill_log(
+
+data) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee76() {var res;return _regenerator.default.wrap(function _callee76$(_context76) {while (1) {switch (_context76.prev = _context76.next) {case 0:_context76.next = 2;return (
+              _ccrequest.default.get("ccy/get_user_bill_log", data));case 2:res = _context76.sent;return _context76.abrupt("return",
+            res);case 4:case "end":return _context76.stop();}}}, _callee76);}))();
+}), _register$log_in$get_);exports.default = _default;
 
 /***/ }),
 
 /***/ 19:
-/*!***********************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/common/ccrequest.js ***!
-  \***********************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/common/ccrequest.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3371,7 +3549,7 @@ var _config = __webpack_require__(/*! ./config */ 9);function _interopRequireDef
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/*!
  * Vue.js v2.6.11
- * (c) 2014-2020 Evan You
+ * (c) 2014-2021 Evan You
  * Released under the MIT License.
  */
 /*  */
@@ -6015,7 +6193,7 @@ function renderList (
       var iterator = val[Symbol.iterator]();
       var result = iterator.next();
       while (!result.done) {
-        ret.push(render(result.value, ret.length, i++, i)); // fixed by xxxxxx
+        ret.push(render(result.value, ret.length, i, i++)); // fixed by xxxxxx
         result = iterator.next();
       }
     } else {
@@ -9176,7 +9354,7 @@ function internalMixin(Vue) {
     Vue.util.warn(("Error in " + info + ": \"" + (err.toString()) + "\""), vm);
     console.error(err);
     /* eslint-disable no-undef */
-    var app = getApp();
+    var app = typeof getApp === 'function' && getApp();
     if (app && app.onError) {
       app.onError(err);
     }
@@ -9330,6 +9508,7 @@ var LIFECYCLE_HOOKS$1 = [
     'onError',
     'onUnhandledRejection',
     //Page
+    'onInit',
     'onLoad',
     // 'onShow',
     'onReady',
@@ -9408,9 +9587,22 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 20:
-/*!**********************************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/static/style/icon/iconfont.css ***!
-  \**********************************************************************/
+/*!***********************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/static/style/icon/iconfont.css ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+    if(false) { var cssReload; }
+  
+
+/***/ }),
+
+/***/ 21:
+/*!*****************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/static/style/global.less ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -9451,10 +9643,10 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 312:
-/*!****************************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/common/qqmap-wx-jssdk.js ***!
-  \****************************************************************/
+/***/ 337:
+/*!*****************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/common/qqmap-wx-jssdk.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10584,10 +10776,10 @@ module.exports = QQMapWX;
 
 /***/ }),
 
-/***/ 329:
-/*!***************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/imgs/mp.png ***!
-  \***************************************************/
+/***/ 354:
+/*!****************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/imgs/mp.png ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10595,10 +10787,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACq
 
 /***/ }),
 
-/***/ 330:
-/*!***************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/imgs/tj.png ***!
-  \***************************************************/
+/***/ 355:
+/*!****************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/imgs/tj.png ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10606,10 +10798,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABACAYAAACj
 
 /***/ }),
 
-/***/ 331:
-/*!**************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/imgs/q.png ***!
-  \**************************************************/
+/***/ 356:
+/*!***************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/imgs/q.png ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10617,10 +10809,10 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACq
 
 /***/ }),
 
-/***/ 332:
-/*!***************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/imgs/dd.png ***!
-  \***************************************************/
+/***/ 357:
+/*!****************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/imgs/dd.png ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10628,10 +10820,21 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACq
 
 /***/ }),
 
-/***/ 392:
-/*!*********************************************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/components/w-picker/city-data/province.js ***!
-  \*********************************************************************************/
+/***/ 4:
+/*!***************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/pages.json ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 417:
+/*!**********************************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/components/w-picker/city-data/province.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10778,10 +10981,10 @@ provinceData;exports.default = _default;
 
 /***/ }),
 
-/***/ 393:
-/*!*****************************************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/components/w-picker/city-data/city.js ***!
-  \*****************************************************************************/
+/***/ 418:
+/*!******************************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/components/w-picker/city-data/city.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12292,10 +12495,10 @@ cityData;exports.default = _default;
 
 /***/ }),
 
-/***/ 394:
-/*!*****************************************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/components/w-picker/city-data/area.js ***!
-  \*****************************************************************************/
+/***/ 419:
+/*!******************************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/components/w-picker/city-data/area.js ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -24845,10 +25048,10 @@ areaData;exports.default = _default;
 
 /***/ }),
 
-/***/ 395:
-/*!***********************************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/components/w-picker/w-picker.js ***!
-  \***********************************************************************/
+/***/ 420:
+/*!************************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/components/w-picker/w-picker.js ***!
+  \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -25358,21 +25561,10 @@ initPicker;exports.default = _default;
 
 /***/ }),
 
-/***/ 4:
-/*!**************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/pages.json ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 518:
-/*!*****************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/imgs/none.png ***!
-  \*****************************************************/
+/***/ 567:
+/*!******************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/imgs/none.png ***!
+  \******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -25380,7 +25572,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACq
 
 /***/ }),
 
-/***/ 59:
+/***/ 60:
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
   \********************************************/
@@ -26494,9 +26686,9 @@ var index = {
 /***/ }),
 
 /***/ 8:
-/*!***********************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/common/xcx_token.js ***!
-  \***********************************************************/
+/*!************************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/common/xcx_token.js ***!
+  \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -26576,19 +26768,20 @@ XcxToken = /*#__PURE__*/function () {
 /***/ }),
 
 /***/ 9:
-/*!********************************************************!*\
-  !*** C:/Users/huzean/Desktop/qihuocc/common/config.js ***!
-  \********************************************************/
+/*!*********************************************************************!*\
+  !*** C:/Users/huzean/Desktop/教育/新建文件夹/qihuo8_cc02/common/config.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.Map_App_key = exports.shop_name = exports.img_url = exports.Shop_app_key = exports.Api_url = void 0;var Api_url = 'https://cc.245buy.com/api/';exports.Api_url = Api_url;
+Object.defineProperty(exports, "__esModule", { value: true });exports.Map_App_key = exports.shop_name = exports.img_url = exports.Shop_app_key = exports.Api_url = void 0; // const Api_url='https://cc.245buy.com/api/';
 var Map_App_key = '3N4BZ-IVZKD-X2R4M-PBVIY-UGCS6-45F5T'; //三叠纪地图KEY
 exports.Map_App_key = Map_App_key;var Shop_app_key = '91440400MA5256M1XY'; //三叠纪测试
-exports.Shop_app_key = Shop_app_key;var img_url = 'https://cc.245buy.com/';
-//const img_url = 'http://116.62.167.182/';
-exports.img_url = img_url;var shop_name = '三叠纪云';exports.shop_name = shop_name;
+// const img_url = 'https://cc.245buy.com/';
+exports.Shop_app_key = Shop_app_key;var img_url = 'http://116.62.167.182/';exports.img_url = img_url;
+var shop_name = '三叠纪云';exports.shop_name = shop_name;
+var Api_url = 'http://116.62.167.182/api/';exports.Api_url = Api_url;
 
 /***/ })
 

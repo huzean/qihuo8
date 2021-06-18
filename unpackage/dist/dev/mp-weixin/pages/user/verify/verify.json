@@ -1,7 +1,10 @@
 {
   "navigationBarTitleText": "实名认证",
   "enablePullDownRefresh": true,
+  "navigationBarBackgroundColor": "#5e0271",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
+    "w-picker": "/components/w-picker/w-picker",
     "tui-upload": "/components/tui-upload/tui-upload"
   }
 }
