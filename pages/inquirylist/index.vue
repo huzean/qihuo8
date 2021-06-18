@@ -12,7 +12,7 @@
 			<block v-for="(item, k) in cartList" :key="item.id">
 				<view class="cart-item">
 					<view class="image-wrappers">
-						<view class="yticon icon-xuanzhong2 checkbox-left" :class="{checkeds: item.radio}" @click="_select_item('item', k)"></view>
+						<!-- <view class="yticon icon-xuanzhong2 checkbox-left" :class="{checkeds: item.radio}" @click="_select_item('item', k)"></view> -->
             <view class="image">
 						<img  :src="((item.product_attr_unique=='')?item.productInfo.image:item.productInfo.attrInfo.image)" @click="jump_detail(item.product_id)" ></img>
             </view>
@@ -26,56 +26,27 @@
                 <text>数量:</text>
                   <tui-numberbox :max="item.trueStock" :min="1" :value="item.cart_num" @change="numberChange($event,k, item.id)"></tui-numberbox> 
               </view>
-                <!-- 积分 -->
-     <view class="popup_overlay" @click="hideDiv()">
-        <text class="iconfont icon-jifen">
-            <text >{{ item.costPrice}}</text>
-            <!-- <text>{{ integralnumber }}</text> -->
-        <!-- <text>20</text> -->
-        </text>
-        <text class="iconfont icon-winfo-icon-xiajiantou" style="font-size:12px;"></text>
-        </view>
-            </view>
             	<text class="del-btn yticon icon-fork" @click="deleteCartItem(k)"></text>
 					</view>
-
-          <!-- 积分弹窗 -->
+          </view>
 				</view>
-         <view v-if="isfolse"  class="popup_content">
-        <view class="popup_title">积分</view>
-        <view class="popup_textarea_item">
-          <input
-            type="text"
-            class="popup_textarea"
-            v-model="integralinput"
-            placeholder="输入积分数量"
-          />
-        </view>
-        <view class="buttons">
-          <text @click="unhide">取消</text>
-          <text @click="submitFeedback">确定</text>
-        </view>
-      </view>
 			</block>
-       
 		</view> 
-   
 		<!-- 底部菜单栏 -->
-		<view class="action-section" :style="{ bottom: is_lhp ? '130rpx' : '99rpx' }">
-			<view class="checkbox">
-				<view class="all-btn" v-if="cartList" @click="choose_all">
-					全选
-				</view>
-                <view class="clear-btn" v-if="cartList" @click="clearCart">
-					清空
-				</view>
-			</view>
-			<view class="total-box">
-				<text class="price">¥{{total}}</text>
-			</view>
-			<button type="primary" class="no-border confirm-btn" @click="createOrder">去结算</button>
-		</view>
     </view>
+    <!-- 积分 -->
+     <view class="integral_box">
+        <text>积分:</text>
+        <view class="integra_item">
+			<input class="input" placeholder-style="font-size:12px;" type="number" pattern="\d*" v-model="integral "  placeholder="请选择" placeholder-class="placeholder" />
+            <text @click="iptrue"  class="iconfont icon-winfo-icon-xiajiantou"></text>
+      </view>
+        </view>
+      <view class="drop_down_box" v-if="!ipshow">
+         <view class="down" 
+          @click="dropdown_list(item)" 
+           v-for="(item, index) in integrallist" :key="index">{{item}}</view>
+      </view>
     <!-- 时间 -->
     <view class="time">
      <picker 
@@ -87,56 +58,67 @@
         @change="bindDateChange">
      <view class="date">
          <view>交货时间:</view>
-         <view>{{start_date}}</view>
+         <view>
+           <text class="hint" v-show="isshow">请选择</text>
+           {{deliverytime.start_date}}</view>
          </view>
     </picker>
     </view>
-    <view class="time">
-     <picker 
-     class="en_time"
-       mode="date"
-      :value="start_date"
-      :start="endDate"
-      @change="bindDateChange2">
-     <view class="date">
-         <view>截止时间:</view>
-         <view>{{ end_date}}</view>
-         </view>
-    </picker>
-    </view>
+   <!-- 截止时间 -->
+   <view class="time_end">
+     <text>截止时间：</text>
+     <picker style="color:#999; font-size:12px;" @change="bindchange"  :value="index" :range="array">
+     <view class="item_array" style="width:350rpx;">{{array[index]}}</view>
+     </picker>
+   </view>
     <!-- 位置 -->
     <view class="citelist">
-	<view class="citelocation">
-			<text class="tit">选择地址:</text>
-			<view class="result" @click="toggleTab">{{resultInfo.result}}</view>
-			<w-picker mode="region" :defaultVal="['北京市','市辖区','东城区']" @confirm="onConfirm" ref="region"></w-picker>
-		</view>
-    <view class="detailedaddress">
-      <text>详细地址:</text>
-      <view>
-			<input class="input" type="text" v-model="form.detail" placeholder="街道、小区、门牌" placeholder-class="placeholder" />
-      </view>
-    </view>
+      <tui-list-cell :arrow="true" :last="true" :radius="true" @click="chooseAddr">
+				<view class="tui-address">
+					<view class="tui-none-addr" v-if="!address">
+						<!-- <image src="/static/images/index/map.png" class="tui-addr-img" mode="widthFix"></image> -->
+						<text style="font-size:14px">选择收货地址</text>
+					</view>
+					<view v-else>
+						<view class="tui-userinfo">
+							<text class="tui-name ">收货人:</text>
+              <text>{{address.real_name}}{{address.phone}}</text>
+						</view>
+						<view class="tui-addr">
+							<!-- <view class="tui-addr-tag"></view> -->
+              <text>收货地址:</text>
+							<text>{{address.province}}{{address.city}}{{address.district}}{{address.detail}}{{address.door_name}} </text>
+						</view>
+					</view>
+				</view>
+				<view class="tui-bg-img"></view>
+			</tui-list-cell>
     <!-- 备注 -->
     <view class="remark">
-        <text>备注:</text>
         <view>
-			<input class="input" type="text" v-model="form.door_name" placeholder="" placeholder-class="placeholder" />
+           <text>备注:</text>
+          <textarea v-model="remark"
+          class="textare" 
+          maxlength="-1"
+           ></textarea>
         </view>
       </view>
        <view class="subit"  @click="getData">提交</view>
     </view>
-     
+    <!--  -->
+  <view type="primary" class="no-border" @confirm-btm="jisnhucesh"></view>
     <!--  -->
   </view>
 </template>
 <script>
+import tuiListCell from "@/components/list-cell/list-cell";
 import wPicker from "@/components/w-picker/w-picker.vue";
 import tuiNumberbox from "@/components/numberbox/numberbox";
 import tuiIcon from "@/components/icon/icon";
 import tuiBadge from "@/components/badge/badge";
 export default {
   components: {
+    tuiListCell,
     tuiNumberbox,
     tuiIcon,
     tuiBadge,
@@ -147,13 +129,13 @@ export default {
       format: true,
     });
     return {
-      isfolse: false, // 默认隐藏
-      integralinput: "", // 输入数量
-      costPrice: "", //选择积分数量
+      integrallist: [2, 5, 8, 10],
+      ipshow: true,
       //时间
+      isshow: true,
       date: currentDate,
-      start_date: "",
-      end_date: "",
+      array: ["请选择", "12小时", "24小时", "72小时"],
+      index: "0",
       //cart
       getimg: this.$getimg,
       allChecked: false, //全选状态  true|false
@@ -161,46 +143,38 @@ export default {
       img_url: this.$img_url,
       cartList: [],
       cart_item_num: 0, //购物车中商品种类
-      resultInfo: {
-        result: "省、市、区",
+      deliverytime: {
+        start_date: "", //交货时间
       },
+      productid_list: "", //商品ID
+      integral: "2", //积分
+      remark: "", //备注
+      address: 0, //地址
     };
   },
   onShow() {
     this._load();
   },
-  watch: {},
-  computed: {
-    //计算总价
-    total() {
-      let total = 0;
-      let list = Object.values(this.cartList);
-      if (list.length === 0) {
-        this.empty = true;
-        return total;
-      }
-      let checked = true;
-      list.forEach((item) => {
-        if (item.radio === true) {
-          // total += item.truePrice *item.cart_num;
-          total += item.cart_num;
-        }
-      });
-      total = Number(total.toFixed(2));
-      return total;
-    },
+  create() {
+    this._load();
   },
   methods: {
-    toggleTab() {
-      this.$refs["region"].show();
+    dropdown_list: function (item) {
+      this.integral = item;
+      this.ipshow = !this.ipshow;
+      console.log("aaaaaa", item);
     },
-    onConfirm(val) {
-      console.log(val);
-      this.resultInfo = val;
-      this.form.province = val.checkArr[0];
-      this.form.city = val.checkArr[1];
-      this.form.district = val.checkArr[2];
-      console.log(this.form);
+    iptrue() {
+      this.ipshow = !this.ipshow;
+    },
+    bindchange: function (e) {
+      this.index = e.target.value;
+      console.log("携带", this.index);
+    },
+    chooseAddr() {
+      uni.navigateTo({
+        url: "../address/address?source=1",
+      });
     },
     search: function () {
       uni.navigateTo({
@@ -208,55 +182,16 @@ export default {
       });
       console.log("点击了");
     },
-    hideDiv() {
-      // 隐藏输入弹出框
-      this.isfolse = true;
-      console.log("点击了");
-    },
-    submitFeedback: function () {
-      // 提交
-      if (this.integralinput == "") {
-        uni.showToast({
-          title: "填写积分",
-          icon: "none",
-          duration: 1000,
-        });
-      } else {
-        this.costPrice = this.integralinput;
-        this.isfolse = false;
-      }
-    },
-    unhide() {
-      this.isfolse = false;
-    },
     // 选择日期
     bindDateChange: function (e) {
-      //下面这行解决支付宝小程序时间分割格式由yy/mm/dd变为yy-mm-dd
-      //这是我的后端要求格式,如果你的后端要求传参为yy/mm/dd就去掉.replace(/\//g, "-"
-      this.start_date = e.target.value.replace(/\//g, "-");
-    },
-    bindDateChange2: function (e) {
-      this.end_date = e.target.value.replace(/\//g, "-");
-    },
-    // 搜索按钮
-    getData() {
-      if (this.start_date == "") {
-        uni.showToast({
-          title: "请输入交货时间",
-        });
-      }
-      if (this.end_date == "") {
-        uni.showToast({
-          title: "请输入交货时间",
-        });
-      }
-      if (this.start_date > this.end_date) {
-        uni.showToast({
-          title: "结束时间不能小于开始时间",
-        });
+      //yy/mm/dd变为yy-mm-dd
+      //后端要求格式,yy/mm/dd就去掉.replace(/\//g, "-"
+      // this.deliverytime.start_date = e.target.value.replace(/\//g, "-");
+      this.deliverytime.start_date = e.target.value.replace(/\//g, "-");
+      if (this.deliverytime.start_date == "") {
+        this.isshow = true;
       } else {
-        console.log("开始", this.start_date, "结束", this.end_date);
-        //这里写请求接口
+        this.isshow = false;
       }
     },
     // 获取当前时间
@@ -265,7 +200,6 @@ export default {
       let year = date.getFullYear();
       let month = date.getMonth() + 1;
       let day = date.getDate();
-
       if (type === "start") {
         year = year - 60;
       } else if (type === "end") {
@@ -286,23 +220,72 @@ export default {
       day = day > 9 ? day : "0" + day;
       return `${year}-${month}-${day}`;
     },
-
+    // 搜索按钮
+    getData() {
+      //提交求接
+      if (this.index == 0) {
+        uni.showToast({
+          title: "请输入截止时间",
+        });
+        if (this.deliverytime.start_date == "") {
+          uni.showToast({
+            title: "请输入交货时间",
+          });
+        }
+        if (this.address === "") {
+          uni.showToast({
+            title: "请输地址",
+          });
+        }
+      } else {
+        uni.showToast({
+          title: "提交成功",
+          duration: 3000,
+        });
+        this.$api.CC_request.submit_enquiry(
+          this.productid_list, //商品
+          this.deliverytime.start_date, //交货
+          this.index, //截至
+          this.address.id, //地址
+          this.integral, //积分
+          this.remark //备注
+        ).then((res) => {
+          console.log("提交", msg);
+        });
+        setTimeout(function () {
+          uni.navigateTo({
+            url: "../enquirylist/enquiry?state=1",
+          });
+        }, 1500);
+        // console.log("开始", this.deliverytime.start_date);
+      }
+    },
     //  cart
     _load() {
       this.$api.CC_request.get_cart_list().then((res) => {
+        console.log("44444444444", res.valid);
         if (res != 401) {
           let list = res.valid;
+          let reslistdata = [];
           list.forEach((item) => {
-            item.radio = false;
+            // if (item) {
+            // const tradindata = `${item.product_id}-${item.cart_num}`;
+            // reslistdata.push(tradindata);
+            reslistdata.push(`${item.product_id}-${item.cart_num}`);
+            // }
+            console.log("商品商品", item);
           });
+          this.productid_list = reslistdata.join(",");
+          // console.log("001", this.productid_list);
           this.cartList = list;
           this.cart_item_num = this.cartList.length;
         }
       });
     },
+    // 1001
     jump_detail(id) {
       uni.navigateTo({
-        url: "../extend-view/productDetail/productDetail?id=" + id,
+        url: "../extend-view/productDetail/productDetail?id=" + id, //详情
       });
     },
     //数量
@@ -313,7 +296,6 @@ export default {
         number: e.value,
       }).then((res) => {});
     },
-
     onImageLoad(key, index) {
       this.$set(this[key][index], "loaded", "loaded");
     },
@@ -321,19 +303,6 @@ export default {
     onImageError(key, index) {
       this[key][index].image = "/static/errorImage.jpg";
     },
-    //选中购物车中的商品
-    _select_item(type, index) {
-      var cradio = !this.cartList[index].radio;
-      this.$set(this.cartList[index], "radio", cradio);
-    },
-
-    //选中所有商品
-    choose_all(type, index) {
-      this.cartList.forEach((item) => {
-        this.$set(item, "radio", true);
-      });
-    },
-
     //删除
     deleteCartItem(index) {
       let cartList = this.cartList;
@@ -345,37 +314,6 @@ export default {
         }
       );
     },
-    //清空
-    clearCart() {
-      uni.showModal({
-        content: "清空购物车？",
-        success: (e) => {
-          if (e.confirm) {
-            this.cartList.forEach((item) => {
-              this.$set(item, "radio", false);
-            });
-          }
-        },
-      });
-    },
-    //创建订单
-    createOrder() {
-      let list = this.cartList;
-      var cart_ids = [];
-      list.forEach((item) => {
-        if (item.radio == true) {
-          cart_ids.push(item.id);
-        }
-      });
-      uni.setStorageSync("order_cart_id", cart_ids.join(","));
-      if (cart_ids.length > 0) {
-        uni.navigateTo({
-          url: "/pages/order/createOrder?state=car",
-        });
-      } else {
-        this.$api.msg("请选择产品");
-      }
-    },
   },
   onPullDownRefresh() {
     this._load();
@@ -385,10 +323,9 @@ export default {
   },
 };
 </script>
-
 <style lang="scss">
 page {
-  // background: #f4f4f4;
+  
   background: #f0f2f5;
   font-family: "PingFangSC-Medium, sans-serif";
 }
@@ -401,34 +338,98 @@ page {
   height: 50px;
   margin: 10px auto;
   background: #fff;
-  // border:solid red 1px;
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 60rpx;
   border-radius: 2px;
   .input {
     width: 650rpx;
-    height: 60rpx;
+    height: 70rpx;
     border: 1.5px solid #c33d9d;
     border-radius: 3px;
     text {
       color: #862b6e;
-      font-size: 18px;
-      line-height: 50rpx;
-      margin-left: 16px;
-      display: flex;
-      align-items: center;
-      .name {
-        font-size: 12px;
-        color: #999999;
-      }
+      margin-left: 20rpx;
     }
+  }
+  .name {
+    font-size: 13px;
+    margin-left: 20rpx;
+  }
+}
+.drop_down_box {
+  width: 94.6%;
+  height: 80px;
+  margin: 0 auto;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+  .down {
+    padding: 15px;
+    border-radius: 10px;
+    background: #f6f6f6;
+  }
+}
+// 积分
+.integral_box {
+  position: relative;
+  .integra_item {
+    display: flex;
+    justify-content: space-between;
+    text {
+      position: absolute;
+      top: 8px;
+      right: 5px;
+      padding: 0 0px 0 20px;
+      font-size: 15px;
+    }
+  }
+  input {
+    width: 200px;
+    display: flex;
+    font-size: 12px;
+  }
+  width: 94.6%;
+  height: 40px;
+  margin: 0px auto;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  text {
+    margin: 0px 10px;
+    font-size: 14px;
+  }
+  .icon-winfo-icon-xiajiantou {
+    color: #5e017a;
+    font-weight: bold;
+  }
+}
+.time_end {
+  width: 94.6%;
+  height: 40px;
+  margin: 10px auto;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  text {
+    font-size: 14px;
+    margin: 0 10px;
+  }
+  .item_array {
+    margin-left: 30px;
+    width: 100%;
   }
 }
 // 时间
 .time {
   width: 94.6%;
-  height: 35px;
+  height: 40px;
   margin: 10px auto;
   background: #fff;
   display: flex;
@@ -439,38 +440,58 @@ page {
     width: 100%;
     display: flex;
     align-items: center;
-    // border: solid red 1px;
     justify-content: space-around;
     view:nth-child(1) {
       width: 100px;
       margin-left: 10px;
       font-size: 14px;
       justify-content: center;
-      // border: solid blue 1px;
     }
     view:nth-child(2) {
       width: 191px;
       height: 35px;
       font-size: 14px;
       color: #999999;
-      // border-bottom:solid red 1px;
       display: flex;
       align-items: center;
+    }
+    .hint {
+      font-size: 12px;
+      margin-left: 10px;
     }
   }
 }
 // 城市位置
+.tui-userinfo {
+  text:nth-child(1) {
+    margin: 0 10px 0 14px;
+    font-size: 14px;
+  }
+  text:nth-child(2) {
+    font-size: 12px;
+    color: #999;
+  }
+}
+.tui-addr {
+  text:nth-child(1) {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  text:nth-child(2) {
+    font-size: 12px;
+    color: #999;
+  }
+}
 .citelist {
   width: 94.6%;
   height: 130px;
-  // border: solid red 1px;
+  margin-bottom: 10px;
   display: flex;
-  background: #fff;
+  // background: #fff;
   margin: 0px auto;
   flex-direction: column;
   font-size: 14px;
   border-radius: 4px;
-
   .citelocation {
     width: 94.6%;
     height: 55px;
@@ -485,7 +506,7 @@ page {
     .result {
       display: flex;
       flex: 7;
-      padding: 0px 0px 0 30px;
+      padding: 0px 0px 0 10px;
       color: #999999;
     }
   }
@@ -508,20 +529,26 @@ page {
   }
   .remark {
     width: 100%;
-    padding: 10px 0px;
     margin-top: 20px;
+    margin-bottom: 20px;
     background: #fff;
     display: flex;
     border-radius: 4px;
+    flex-direction: column;
+    .textare {
+      margin: 0 auto;
+      height: 100px;
+    }
     text {
-      margin: 0px 10px;
+      margin-left: 10px;
     }
   }
   .subit {
     width: 65%;
+    height: 50px;
     padding: 10px 0px;
     margin: 20px auto;
-    background: #862b6e;
+    background: #5e017a;
     text-align: center;
     color: #fff;
     border-radius: 8px;
@@ -529,8 +556,6 @@ page {
 }
 // cart
 .cart {
-  // padding-bottom: 134upx;
-  /* 空白页 */
   .empty {
     position: fixed;
     left: 0;
@@ -543,83 +568,72 @@ page {
     flex-direction: column;
     align-items: center;
     background: #fff;
-
     image {
       width: 240upx;
       height: 160upx;
       margin-bottom: 30upx;
     }
-
     .empty-tips {
       display: flex;
       font-size: $font-sm + 2upx;
       color: $font-color-disabled;
-
       .navigator {
         color: $uni-color-primary;
         margin-left: 16upx;
       }
     }
   }
-
   /* 购物车列表项 */
   .cart-item {
     width: 94%;
-    height: 100px;
+    height: 230rpx;
     display: flex;
-    // border: solid red 1px;
     margin: 10px auto;
     background: #fff;
     border-radius: 10px;
+    // border:solid red 1px;
     .image-wrappers {
       display: flex;
       flex: 2;
       text-align: center;
-      // flex-shrink: 0;
-      // border: solid red 1px;
+      justify-content: center;
       .image {
         display: flex;
         align-items: center;
         img {
           display: flex;
           align-items: center;
-          width: 60px !important;
-          height: 60px !important;
+          justify-content: center;
+          width: 80px !important;
+          height: 80px !important;
           border-radius: 8upx;
-          margin: 0 auto;
         }
       }
     }
-
     .checkbox-left {
       font-size: 20px;
       z-index: 8;
       color: $font-color-disabled;
       background: #fff;
       border-radius: 50px;
-      // border:solid red 1px;
     }
-
     .item-right {
       display: flex;
       flex-direction: column;
       flex: 5;
       overflow: hidden;
       position: relative;
-      padding-left: 30upx;
-      // border: solid yellow 1px;
+      padding-left: 10px;
       .title,
       .price {
-        font-size: $font-base + 2upx;
+        margin-top: 10px;
+        font-size: 13px;
         color: $font-color-dark;
         height: 28px;
-        // line-height: 40upx;
       }
-
       .attr {
         font-size: $font-sm + 2upx;
         color: $font-color-light;
-        // height: 50upx;
         line-height: 50upx;
       }
       .price {
@@ -629,7 +643,6 @@ page {
       .quantity {
         display: flex;
         justify-content: space-between;
-        // border:solid red 1px;
         view:nth-child(1) {
           text {
             font-size: 14px;
@@ -637,37 +650,16 @@ page {
           display: flex;
           align-items: center;
         }
-        .icon-jifen {
-          text {
-            margin-left: 3px;
-            font-size: 13px;
-          }
-        }
-        .popup_overlay {
-          width: 60px;
-          height: 22px;
-          display: flex;
-          justify-content: space-around;
-          line-height: 20px;
-          background: linear-gradient(140deg, #c33d9d, #862b6e);
-          border-radius: 10px 0 0 10px;
-          .iconfont {
-            color: #fff;
-          }
+        .del-btn {
+          font-size: 18px !important;
+          color: #6a0098;
+          position: absolute;
+          top: 10px;
+          right: 10px;
         }
       }
     }
-    .del-btn {
-      position: absolute;
-      top: 5px;
-      right: 10px;
-      // padding: 4upx 10upx;
-      font-size: 34upx;
-      // height: 50upx;
-      color: $font-color-light;
-    }
   }
-
   /* 底部栏 */
   .action-section {
     /* #ifdef H5 */
@@ -685,11 +677,9 @@ page {
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0 20upx 0 rgba(0, 0, 0, 0.5);
     border-radius: 16upx;
-
     .checkbox {
       height: 52upx;
       position: relative;
-
       image {
         width: 52upx;
         height: 100%;
@@ -697,7 +687,6 @@ page {
         z-index: 5;
       }
     }
-
     .clear-btn {
       position: absolute;
       left: 146upx;
@@ -712,7 +701,6 @@ page {
       background: $font-color-disabled;
       border-radius: 0 50px 50px 0;
     }
-
     .all-btn {
       position: absolute;
       left: 26upx;
@@ -727,19 +715,16 @@ page {
       background: #ff3e0e;
       border-radius: 0 50px 50px 0;
     }
-
     .total-box {
       flex: 1;
       display: flex;
       flex-direction: column;
       text-align: right;
       padding-right: 40upx;
-
       .price {
         font-size: $font-lg;
         color: $font-color-dark;
       }
-
       .coupon {
         font-size: $font-sm;
         color: $font-color-light;
@@ -749,7 +734,6 @@ page {
         }
       }
     }
-
     .confirm-btn {
       padding: 0 38upx;
       margin: 0;
@@ -761,7 +745,6 @@ page {
       box-shadow: 1px 2px 5px rgba(217, 60, 93, 0.72);
     }
   }
-
   /* 复选框选中状态 */
   .action-section .checkbox.checked,
   .cart-item .checkbox .checked {
@@ -795,59 +778,16 @@ page {
     color: #666;
     margin: 0 0 6px 0;
   }
-
   .tui-ptop-4 {
     padding-top: 4rpx;
   }
-
   .tui-scale {
     transform: scale(0.8);
     transform-origin: center 100%;
     line-height: 30rpx;
   }
-
   .tui-item-active {
     color: #e41f19 !important;
-  }
-  // 弹窗
-  .popup_content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    width: 280px;
-    height: 180px;
-    // padding:30px;
-    border: 1px solid #f4f4f4;
-    background-color: #fff;
-    overflow: auto;
-    // border:solid red 1px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    z-index: 99;
-  }
-  .popup_title {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 30px;
-    font-size: 32rpx;
-  }
-  .popup_textarea_item {
-    padding-top: 5rpx;
-    height: 80rpx;
-    width: 90%;
-    background-color: #f1f1f1;
-    margin-top: 20rpx;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    margin-bottom: 25px;
-    border: solid #dfd8d8 1px;
-    border-radius: 4px;
-    font-size: 15px;
   }
   .popup_button {
     color: #f4f4f4;
@@ -855,14 +795,6 @@ page {
   .popup_overlay {
     width: 40px;
     border: solid red 1px;
-  }
-  .buttons {
-    width: 100%;
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    font-size: 32rpx;
   }
 
   /*tabbar*/
@@ -880,11 +812,6 @@ page {
     align-items: center;
     justify-content: center;
     z-index: 10;
-  }
-
-  .tui-badge-red {
-    background: #f74d54;
-    color: #fff;
   }
 }
 </style>

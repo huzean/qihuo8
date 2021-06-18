@@ -1,164 +1,275 @@
 <template>
-	<view>
-		<!--tabbar-->
-		<view class="tui-tabbar" :style="{ height: is_lhp ? '136rpx' : '99rpx' }" >
-			<block v-for="(item,index) in tabbar" :key="index">
-				<view class="tui-tabbar-item" :style="{ padding: is_lhp ? '20rpx 0 0 0' : '0rpx 0 0 0' }" :class="[current==index?'tui-item-active':'']" :data-index="index" @tap="tabbarSwitch">
-					<view :class="[index==0?'tui-ptop-4':'']">
-            <text class="iconfont" style="font-size:18px; font-weight:400; margin-bottom:5px;">{{item.icon}} </text>
-						<!-- <tui-icon :name="current==index?item.icon+'-fill':item.icon" :color="current==index?'#5e017a':'#666'" :size="item.size"></tui-icon> -->
-					    <view class=".tui-badge-tabbar tui-badge-red" v-if="(index == 2) && (cart_item_num > 0)">{{cart_item_num}}</view>
-					</view>
-					<view class="tui-scale">{{item.text}}</view>
-				</view>
-			</block>
-		</view>
-		<!--tabbar-->
-		<!--header-->
-		<view class="tui-header-box" :style="{height:height+'px',background:'rgba(255,255,255,'+opcity+')'}">
-			<view class="tui-header" :style="{paddingTop:top+'px', opacity:opcity}">
-				
-			</view>
-			<!-- #ifndef MP -->
-			<view class="tui-header-icon" :style="{marginTop:top+'px'}" @tap="href(1)">
-				<view class="tui-icon-box tui-icon-message">
-					<tui-icon name="message" :color="opcity>0.02?`rgba(85,85,85,${opcity})`:'#fff'" :size="26"></tui-icon>
-					<view class="tui-badge" :class="[opcity>0.05?'tui-badge-red':'tui-badge-white']">1</view>
-				</view>
-				<view class="tui-icon-box tui-icon-setup" @tap="href(2)">
-					<tui-icon name="setup" :color="opcity>0.02?`rgba(85,85,85,${opcity})`:'#fff'" :size="26"></tui-icon>
-				</view>
-			</view>
-			<!-- #endif -->
-		</view>
-		<!--header-->
-		<view class="tui-mybg-box">
-			<image src="../../static/images/mall/my/img_bg_3x.png" class="tui-my-bg" mode="widthFix"></image>
-			<view class="tui-header-center">
-				<image :src="current_user.avatar" class="tui-avatar" @tap="href(3)"></image>
-				<view class="tui-info">
-					<view class="tui-nickname">{{current_user.nickname}}</image>
-					</view>
-					<button class="bt_auth" type="primary" v-if="current_user == null" @click="wechat_auth">点击授权登录</button>
-				</view>
-				<!-- #ifndef MP -->
-				<view class="tui-btn-edit">
-					<tui-button type="white" :plain="true" shape="circle" width="92rpx" height="40rpx" :size="22" @click="href(3)">编辑</tui-button>
-				</view>
-				<!-- #endif -->
-				<!-- #ifdef MP -->
-				<view class="tui-set-box">
-					<view class="tui-icon-box tui-icon-message" @tap="href(1)">
-						<tui-icon name="message" color="#fff" :size="26"></tui-icon>
-						<!--<view class="tui-badge tui-badge-white">1</view>-->
-					</view>
-					<view class="tui-icon-box tui-icon-setup" @tap="href(2)">
-						<tui-icon name="setup" color="#fff" :size="26"></tui-icon>
-					</view>
-				</view>
-				<!-- #endif -->
-			</view>
-		</view>
-		<view class="tui-content-box">
-			<view class="tui-box tui-assets-box">
-				<tui-list-cell padding="0" :last="true" :hover="false">
-					<view class="tui-cell-header">
-						<view class="tui-cell-title">我的资产</view>
-					</view>
-				</tui-list-cell>
-				<view class="tui-order-list tui-assets-list">
-					<view class="tui-order-item" @tap="href(61)">
-						<view class="tui-assets-num">
-							<text>{{current_user.couponCount}}</text>
-							<view class="tui-badge-dot"></view>
-						</view>
-						<view class="tui-assets-text">销币</view>
-					</view>
-					<view class="tui-order-item">
-						<view class="tui-assets-num">
-							<text>{{current_user.integral}}</text>
-							<view class="tui-badge-dot"></view>
-						</view>
-						<view class="tui-assets-text">黄钻</view>
-					</view>
-					<view class="tui-order-item" @tap="href(63)">
-						<view class="tui-assets-num">
-							<text>{{current_user.like}}</text>
-							<view class="tui-badge-dot"></view>
-						</view>
-						<view class="tui-assets-text">收藏</view>
-					</view>
-				</view>
-			</view>
-
-			<view class="tui-box tui-tool-box" >
-				<tui-list-cell :arrow="true" padding="0" :lineLeft="false">
-					<view class="tui-cell-header">
-						<view class="tui-cell-title">常用工具</view>
-						<view class="tui-cell-sub" @tap="href(7)">查看更多</view>
-					</view>
-				</tui-list-cell>
-				<view class="tui-order-list tui-flex-wrap">
-					<button class=" tui-tool-item" open-type='contact' hover-class='none'>
-						<view class="tui-icon-box">
-							<image src="../../static/images/mall/my/icon_kefu_3x.png" class="tui-tool-icon"></image>
-						</view>
-						<view class="tui-tool-text">客服服务</view>
-					</button>
-					<view class=" tui-tool-item" @tap="go_page('/pages/user/wallet/mywallet')">
-						<view class="tui-icon-box">
-							<image src="../../static/images/mall/my/icon_purse_3x.png" class="tui-tool-icon"></image>
-						</view>
-						<view class="tui-tool-text">我的钱包</view>
-					</view>
-					<block v-for="(item,index) in user_menus" :key="index">
-						<view class=" tui-tool-item" @tap="go_page(item.url)">
-							<view class="tui-icon-box">
-								<image :src="item.pic" class="tui-tool-icon"></image>
-							</view>
-							<view class="tui-tool-text">{{item.name}}</view>
-						</view>
-					</block>				
-				</view>
-		</view>
-		</view>
-		<view>
-			<view class='Popup' :hidden="isHidden">
-			   <image :src='logo_url'></image>
-			   <view class='title'>授权提醒</view>
-			   <view class='tip'>请授权头像等信息，以便更好的使用服务</view>
-			   <view class='bottom flex'>
-				   <view class='item' @tap='close'>拒绝授权</view>
-			      <button class='item grant'  type="primary" open-type="getUserInfo" @getuserinfo="getUserInfo">确认授权</button>
-			   </view>
-			</view>
-			<view class='mask' :hidden="isHidden" @click="close"></view>
-		</view>
-		<view>
-			<view class='Popup' :hidden="isAuthHidden">
-			   <view class='title'>提交信息，审核通过后，可享受优惠价格</view>
-			   <view class="tips">
-			   	<text class="tit">店铺名</text>
-			   	<input class="input" type="text" v-model="form.door_name" placeholder="请填写门头名称" placeholder-class="placeholder" />
-			   </view>
-			   <view class="tips">
-			   	<text class="tit">手机号</text>
-			   	<input class="input" type="number" v-model="form.phone" placeholder="收货人手机号码" placeholder-class="placeholder" />
-			   </view>
-			   <view class="tips">
-			   	<text class="tit">详细</text>
-			   	<input class="input" type="text" v-model="form.address" placeholder="填写到门牌号" placeholder-class="placeholder" />
-			   </view>
-			   <view class='bottom flex'>
-				   <view class='item' @tap='close'>拒绝授权</view>
-			      <button class='item grant'  type="primary" @tap="submit_auth">提交授权申请</button>
-			   </view>
-			</view>
-			<view class='mask' :hidden="isAuthHidden" @click="close"></view>
-		</view>
-	</view>
+  <view>
+    <!--tabbar-->
+    <view class="tui-tabbar" :style="{ height: is_lhp ? '130rpx' : '105rpx' }">
+      <block v-for="(item, index) in tabbar" :key="index">
+        <view
+          class="tui-tabbar-item"
+          :style="{ padding: is_lhp ? '20rpx 0 0 0' : '0rpx 0 0 0' }"
+          :class="[current == index ? 'tui-item-active' : '']"
+          :data-index="index"
+          @tap="tabbarSwitch"
+        >
+          <view class="icon-size" :class="[index == 0 ? 'tui-ptop-4' : '']">
+            <text class="iconfont" :class="index == 2 ? 's3' : ''"
+              >{{ item.icon }}
+            </text>
+          </view>
+          <view class="tui-scale" :class="'s' + (index + 1)">{{
+            item.text
+          }}</view>
+        </view>
+      </block>
+    </view>
+    <!--tabbar-->
+    <!--header-->
+    <view
+      class="tui-header-box"
+      :style="{
+        height: height + 'px',
+        background: 'rgba(255,255,255,' + opcity + ')',
+      }"
+    >
+      <view
+        class="tui-header"
+        :style="{ paddingTop: top + 'px', opacity: opcity }"
+      >
+      </view>
+      <!-- #ifndef MP -->
+      <view
+        class="tui-header-icon"
+        :style="{ marginTop: top + 'px' }"
+        @tap="href(1)"
+      >
+        <view class="tui-icon-box tui-icon-message">
+          <tui-icon
+            name="message"
+            :color="opcity > 0.02 ? `rgba(85,85,85,${opcity})` : '#fff'"
+            :size="26"
+          ></tui-icon>
+          <view
+            class="tui-badge"
+            :class="[opcity > 0.05 ? 'tui-badge-red' : 'tui-badge-white']"
+            >1</view
+          >
+        </view>
+        <view class="tui-icon-box tui-icon-setup" @tap="href(2)">
+          <tui-icon
+            name="setup"
+            :color="opcity > 0.02 ? `rgba(85,85,85,${opcity})` : '#fff'"
+            :size="26"
+          ></tui-icon>
+        </view>
+      </view>
+      <!-- #endif -->
+    </view>
+    <!--header-->
+    <view class="tui-mybg-box">
+      <view class="tui-header-center">
+        <image
+          :src="current_user.avatar"
+          class="tui-avatar"
+          @tap="href(3)"
+        ></image>
+        <view class="tui-info">
+          <view class="tui-nickname">{{ current_user.nickname }}</view>
+          <button
+            class="bt_auth"
+            v-if="current_user == null"
+            @click="wechat_auth"
+          >
+            点击授权登录
+          </button>
+        </view>
+        <!-- #ifndef MP -->
+        <view class="tui-btn-edit">
+          <tui-button
+            type="white"
+            :plain="true"
+            shape="circle"
+            width="92rpx"
+            height="40rpx"
+            :size="22"
+            @click="href(3)"
+            >编辑</tui-button
+          >
+        </view>
+        <!-- #endif -->
+        <!-- #ifdef MP -->
+        <view class="tui-set-box">
+          <view class="tui-icon-box tui-icon-message" @tap="href(1)">
+            <tui-icon name="message" color="#fff" :size="26"></tui-icon>
+            <!--<view class="tui-badge tui-badge-white">1</view>-->
+          </view>
+          <!-- 设置 -->
+          <view class="tui-icon-box tui-icon-setup" @tap="href(2)">
+            <tui-icon name="setup" color="#fff" :size="26"></tui-icon>
+          </view>
+        </view>
+        <!-- #endif -->
+      </view>
+    </view>
+    <view class="tui-content-box">
+      <view class="tui-box tui-assets-box">
+        <tui-list-cell padding="0" :last="true" :hover="false">
+          <view class="tui-cell-header">
+            <view class="tui-cell-title color_text">我的资产</view>
+          </view>
+        </tui-list-cell>
+        <view class="tui-order-list tui-assets-list">
+          <view class="tui-order-item" @tap="href(61)">
+            <view class="tui-assets-num">
+              <text>{{ current_cust.wallet.coin_amount }}</text>
+              <view class="tui-badge-dot"></view>
+            </view>
+            <view class="tui-assets-text color_text">销币</view>
+          </view>
+          <view class="tui-order-item">
+            <view class="tui-assets-num">
+              <text>{{ current_cust.wallet.gift_amount }}</text>
+              <view class="tui-badge-dot"></view>
+            </view>
+            <view class="tui-assets-text color_text">黄钻</view>
+          </view>
+          <view class="tui-order-item" @tap="href(63)">
+            <view class="tui-assets-num">
+              <text>{{ current_user.like }}</text>
+              <view class="tui-badge-dot"></view>
+            </view>
+            <view class="tui-assets-text color_text">收藏</view>
+          </view>
+        </view>
+      </view>
+      <view class="tui-box tui-tool-box">
+        <tui-list-cell :arrow="true" padding="0" :lineLeft="false">
+          <view class="tui-cell-header">
+            <view class="tui-cell-title color_text">实名认证</view>
+            <!-- <view class="tui-cell-sub color_text" @tap="href(8)">{{current_cust.status == 2?'已认证':'未认证'}}</view> -->
+            <view class="tui-cell-sub color_text tui-flex" @tap="href(8)">
+              <tui-icon
+                :name="current_cust.status == 2 ? 'circle-selected' : 'edit'"
+                :size="17"
+                :color="current_cust.status == 2 ? '#ff0188' : '#5e017a'"
+              ></tui-icon>
+                <view class="tui-cell-sub color_text">{{
+                current_cust.status == 2 ? "已认证" : "未认证"
+              }}</view>
+            </view>
+          </view>
+        </tui-list-cell>
+        <tui-list-cell :arrow="true" padding="0" :lineLeft="false">
+          <view class="tui-cell-header">
+            <view class="tui-cell-title color_text">实名认证</view>
+         <view class="tui-cell-sub color_text tui-flex" @tap="href(7)">
+           <tui-icon name="edit" color="#5e017a" :size="17"></tui-icon>
+              <view class="tui-cell-sub color_text">未认证</view>
+            </view>
+          </view>
+        </tui-list-cell>
+      </view>
+      <view class="tui-box tui-tool-box">
+        <tui-list-cell :arrow="true" padding="0" :lineLeft="false">
+          <view class="tui-cell-header">
+            <view class="tui-cell-title color_text">常用工具</view>
+            <view class="tui-cell-sub color_text" @tap="href(7)">查看更多</view>
+          </view>
+        </tui-list-cell>
+        <view class="tui-order-list tui-flex-wrap">
+          <button class="tui-tool-item" open-type="contact" hover-class="none">
+            <view class="tui-icon-box">
+              <image
+                src="../../static/images/mall/my/icon_kefu_3x.png"
+                class="tui-tool-icon"
+              ></image>
+            </view>
+            <view class="tui-tool-text">客服服务</view>
+          </button>
+          <view
+            class="tui-tool-item"
+            @tap="go_page('/pages/user/wallet/mywallet')"
+          >
+            <view class="tui-icon-box">
+              <image
+                src="../../static/images/mall/my/icon_purse_3x.png"
+                class="tui-tool-icon"
+              ></image>
+            </view>
+            <view class="tui-tool-text">我的钱包</view>
+          </view>
+          <block v-for="(item, index) in user_menus" :key="index">
+            <view class="tui-tool-item" @tap="go_page(item.url)">
+              <view class="tui-icon-box">
+                <image :src="item.pic" class="tui-tool-icon"></image>
+              </view>
+              <view class="tui-tool-text">{{ item.name }}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="Popup" :hidden="isHidden">
+        <image :src="logo_url"></image>
+        <view class="title">授权提醒</view>
+        <view class="tip">请授权头像等信息，以便更好的使用服务</view>
+        <view class="bottom flex">
+          <view class="item" @tap="close">拒绝授权</view>
+          <button
+            class="item grant"
+            type="primary"
+            open-type="getUserInfo"
+            @getuserinfo="getUserInfo"
+          >
+            确认授权
+          </button>
+        </view>
+      </view>
+      <view class="mask" :hidden="isHidden" @click="close"></view>
+    </view>
+    <view>
+      <view class="Popup" :hidden="isAuthHidden">
+        <view class="title">提交信息，审核通过后，可享受优惠价格</view>
+        <view class="tips">
+          <text class="tit">店铺名</text>
+          <input
+            class="input"
+            type="text"
+            v-model="form.door_name"
+            placeholder="请填写门头名称"
+            placeholder-class="placeholder"
+          />
+        </view>
+        <view class="tips">
+          <text class="tit">手机号</text>
+          <input
+            class="input"
+            type="number"
+            v-model="form.phone"
+            placeholder="收货人手机号码"
+            placeholder-class="placeholder"
+          />
+        </view>
+        <view class="tips">
+          <text class="tit">详细</text>
+          <input
+            class="input"
+            type="text"
+            v-model="form.address"
+            placeholder="填写到门牌号"
+            placeholder-class="placeholder"
+          />
+        </view>
+        <view class="bottom flex">
+          <view class="item" @tap="close">拒绝授权</view>
+          <button class="item grant" type="primary" @tap="submit_auth">
+            提交授权申请
+          </button>
+        </view>
+      </view>
+      <view class="mask" :hidden="isAuthHidden" @click="close"></view>
+    </view>
+  </view>
 </template>
-
 <script>
 import tuiIcon from "@/components/icon/icon";
 import tuiButton from "@/components/extend/button/button";
@@ -186,7 +297,6 @@ export default {
     // #ifdef MP-ALIPAY
     my.hideAddToDesktopMenu();
     // #endif
-
     uni.getSystemInfo({
       success: (res) => {
         this.width = obj.left || res.windowWidth;
@@ -202,25 +312,29 @@ export default {
   },
   data() {
     return {
-		   // 判断手机类型
+      // 判断手机类型
       is_lhp: false,
-      current: 3,
+      current: 4,
       tabbar: [
         {
-         icon: "\ue60d",
+          icon: "\ue60d",
           text: "首页",
         },
         {
-         icon: "\ue6a0",
-        text: "询价",
+          icon: "\ue6a0",
+          text: "询价",
         },
         {
-        icon: "\ue646",
-        text: "报价",
+          icon: "\ue621",
+          text: "求购",
         },
         {
-         icon: "\ue60a",
-        text: "我的",
+           icon: "\ue630",
+          text: "联系",
+        },
+        {
+          icon: "\ue63f",
+          text: "我的",
         },
       ],
       img_url: this.$img_url,
@@ -233,13 +347,13 @@ export default {
       loadding: false,
       pullUpOn: true,
 
-      order_count_data: {}, //订单统计数据
       userInfo: {},
       current_user: null,
+      current_cust: null,
       user_menus: [],
       isHidden: true,
       isAuthHidden: true,
-      cart_item_num: 0, //购物车中商品种类
+
       form: {
         door_name: "",
         phone: "",
@@ -248,7 +362,7 @@ export default {
     };
   },
   onLoad() {
-	   // 判断手机机型
+    // 判断手机机型
     let _this = this;
     this.is_lhp = this.$is_bang;
     console.log("是否为刘海屏", this.is_lhp);
@@ -256,16 +370,6 @@ export default {
     if (is_login == 0) {
       return;
     }
-    this.$api.CC_request.get_cart_list().then((res) => {
-      if (res != 401) {
-        let list = res.valid;
-        list.forEach((item) => {
-          item.radio = false;
-        });
-        this.cartList = list;
-        this.cart_item_num = this.cartList.length;
-      }
-    });
   },
   onShow() {
     var is_login = uni.getStorageSync("is_login");
@@ -277,15 +381,12 @@ export default {
   methods: {
     load_user_info() {
       this.$api.CC_request.get_user_menu().then((res) => {
+        console.log("USER", res);
         if (res != 401) {
           this.user_menus = res.routine_my_menus;
         }
       });
-      this.$api.CC_request.order_get_data().then((res) => {
-        if (res != 401) {
-          this.order_count_data = res;
-        }
-      });
+
       this.$api.CC_request.get_user().then((res) => {
         if (res != 401) {
           this.current_user = res;
@@ -294,6 +395,10 @@ export default {
           if (is_user_auth == 1 && this.current_user.is_auth == 0) {
             this.isAuthHidden = false;
           }
+
+          this.$api.CC_request.get_cust_info().then((res) => {
+            this.current_cust = res;
+          });
         }
       });
     },
@@ -320,6 +425,9 @@ export default {
         case 4:
           url = "../myOrder/myOrder";
           break;
+        case 8:
+          url = "/pages/user/verify/verify";
+          break;
         case 61:
           url = "/pages/user/mycoupon/mycoupon";
           break;
@@ -342,20 +450,6 @@ export default {
         url: url,
       });
     },
-    goto_order(e) {
-      var is_login = uni.getStorageSync("is_login");
-      if (is_login == 0) {
-        uni.showToast({
-          title: "请先点击授权登录",
-          icon: "none",
-          duration: 2000,
-        });
-        return;
-      }
-      uni.navigateTo({
-        url: "/pages/order/order?state=" + e,
-      });
-    },
     wechat_auth() {
       this.isHidden = false;
     },
@@ -366,6 +460,7 @@ export default {
     submit_auth() {
       this.$api.CC_request.submit_auth_user(this.form).then((res) => {
         this.isAuthHidden = true;
+        console.log("000001", res);
       });
     },
     getUserInfo(e) {
@@ -380,10 +475,10 @@ export default {
           url = "/pages/index/index";
           break;
         case 1:
-          url = "/pages/enquirylist/enquiry";
+          url = "/pages/enquirylist/enquiry?state=1";
           break;
         case 2:
-          url = "/pages/makeoffers/make";
+          url = "/pages/inquirylist/index";
           break;
         case 3:
           break;
@@ -416,7 +511,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .tui-header-box {
   width: 100%;
   position: fixed;
@@ -492,7 +587,6 @@ export default {
   background: #fff;
   color: #f74d54;
 }
-
 .tui-badge-dot {
   position: absolute;
   height: 12rpx;
@@ -505,10 +599,14 @@ export default {
 
 .tui-mybg-box {
   width: 100%;
-  height: 464rpx;
+  height: 350rpx;
   position: relative;
+  background: #5e017a;
+  border-radius: 0px 0px 8px 8px;
 }
-
+.color_text {
+  color: #5e017a !important;
+}
 .tui-my-bg {
   width: 100%;
   height: 464rpx;
@@ -647,6 +745,10 @@ export default {
   color: #999;
   padding-right: 28rpx;
 }
+.tui-flex {
+  display: flex;
+  align-items: center;
+}
 
 .tui-order-list {
   width: 100%;
@@ -669,7 +771,7 @@ export default {
 .tui-tool-text {
   font-size: 26rpx;
   font-weight: 400;
-  color: #666;
+  color: #5e017a;
   padding-top: 4rpx;
 }
 
@@ -729,6 +831,7 @@ export default {
   width: 64rpx;
   height: 64rpx;
   display: block;
+  color: red;
 }
 
 .tui-badge-icon {
@@ -931,16 +1034,8 @@ export default {
   padding-top: 4rpx;
 }
 
-.tui-scale {
-  transform: scale(0.5);
-  transform-origin: center 100%;
-  line-height: 30rpx;
-    font-size:24px;
-
-}
-
 .tui-item-active {
-  color: #5e017a !important;
+  color:#b13b8f !important;
 }
 .tui-badge-tabbar {
   position: absolute;
@@ -961,6 +1056,8 @@ export default {
 .bt_auth {
   margin-left: -20rpx;
   width: 300rpx;
+  background-color: #ff6682;
+  color: #ffffff;
 }
 button {
   padding: 0;
@@ -971,5 +1068,24 @@ button {
 }
 button::after {
   border: 0;
+}
+.s3 {
+  position: relative;
+  top: -30rpx;
+}
+.icon-size {
+  .s3 {
+    font-size: 90rpx;
+    position: relative;
+    background: linear-gradient(0deg, #c33d9d 0%, #862b6e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    top: -10px;
+  }
+  .si.s2.s4.s5 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 5px;
+  }
 }
 </style>

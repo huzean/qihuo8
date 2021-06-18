@@ -73,6 +73,7 @@
 			},
 			del(item) {
 				const that = this
+				console.log(this.likeList)
 				uni.showModal({
 					title: '提示',
 					content: '确定取消？',

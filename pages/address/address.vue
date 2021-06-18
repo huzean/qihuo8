@@ -35,7 +35,6 @@
 			this._load()
 		},
 		methods: {
-			
 			_load(){
 				this.$api.CC_request.get_address_list().then(res => {
 					this.addressList = res
@@ -52,7 +51,6 @@
 			checkAddress(item){
 				if(this.source == 1){
 					this.$api.prePage().address = item
-					this.$api.prePage().compute_order_amount()
 					uni.navigateBack()
 				}
 			},

@@ -17,7 +17,7 @@
           class="tui-input"
           v-model.trim="key"
           @confirm="sub"
-		  @input="set"
+		    @input="set"
         />
         <!-- #ifdef APP-PLUS || MP -->
         <icon
@@ -74,13 +74,12 @@
         </view>
         
       </view>
-      <view class="tui-hot-content">
+      <!-- <view class="tui-hot-content">
         <block v-for="(item, index) in hot" :key="index">
-          <tui-tag type="gray" shape="circle" @click="to_search(item)">{{
-            item
-          }}</tui-tag>
+          <tui-tag type="gray" shape="circle" @click="to_search(item)">
+            {{item}}</tui-tag>
         </block>
-      </view>
+      </view> -->
     </view>
     <tui-actionsheet
       :show="showActionSheet"
@@ -90,7 +89,6 @@
     ></tui-actionsheet>
   </view>
 </template>
-
 <script>
 import tuiIcon from "@/components/icon/icon";
 import tuiTag from "@/components/tag/tag";
@@ -108,7 +106,7 @@ export default {
       hot: [],
       historyList: [],
 	   list: [
-        "王老吉1.5l","王老吉250ml", "可乐330ml迷你","可乐250ml罐装","可乐680ml瓶装","怡宝550ml","怡宝1.5L","怡宝250ml","加多宝250ml","冰红茶550ml",
+        "王老吉","王老吉250ml", "可乐330ml迷你","可乐250ml罐装","可乐680ml瓶装","怡宝550ml","怡宝1.5L","怡宝250ml","加多宝250ml","冰红茶550ml",
         "农夫山泉550ml", "20椰汁椰国1.25L", "红牛150ml",  "珠江0度",  "雀巢咖啡",  "百岁山550ml",  "5L农夫山泉",
         '康师傅拉卤牛肉面(五连包)',
         '康师傅卤香牛肉',
@@ -144,12 +142,14 @@ historylist(){
     get_hotSearch() {},
 	set(e){
   let value = e.detail.value;
-      if (!value) {
+  let valuek=this.key
+  // console.log("mm",this.key)
+      if (!value=="") {
         this.filterList = this.list;
       }
-      if (value == "") {
+      if (value == "" ) {
         this.filterList = "";
-        return;
+        return
       }
       let filterArr = [];
       // 过滤出符合条件的值
@@ -162,13 +162,14 @@ historylist(){
 	},
 	 join(str, key) {
       var reg = new RegExp(`(${key})`, "gm");
-    //   var replace = '<span style="color:rgb(236, 145, 7);margin-left:10px;"> $1 </span>';
+      // var replace = '<span style="color:rgb(236, 145, 7);margin-left:10px;"> $1 </span>';
 	  var replace ="$1";
-	//   var aaa = str.replace(/<.*?>+/g, "");
+	  // var replace = str.replace(/<.*?>+/g, "");
       return str.replace(reg, replace);
     },
+
     sub(e) {
-		console.log(e)
+		// console.log("0001111",e)
       uni.redirectTo({
         url: "../productList/productList?searchKey=" + this.key,
       });
@@ -202,6 +203,8 @@ historylist(){
         this.history = [];
       }
     },
+    // 
+    // 
   },
 };
 </script>
@@ -211,19 +214,16 @@ page {
   color: #333;
   background: #fff;
 }
-
 .container {
   padding: 0 30upx 30upx 30upx;
   box-sizing: border-box;
 }
-
 .tui-searchbox {
   padding: 30upx 0;
   box-sizing: border-box;
   display: flex;
   align-items: center;
 }
-
 .tui-search-input {
   width: 100%;
   height: 66upx;

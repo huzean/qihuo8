@@ -203,7 +203,7 @@ export default {
     //创建订单
     createOrder() {
       let list = this.cartList;
-      var cart_ids = [];
+      // var cart_ids = [];
       list.forEach((item) => {
         if (item.radio == true) {
           cart_ids.push(item.id);

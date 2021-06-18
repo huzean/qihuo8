@@ -19,6 +19,7 @@
 				</view>
 				<view class="tui-bg-img"></view>
 			</tui-list-cell>
+			<view @click="onclick">点击</view>
 			<view class="tui-top tui-goods-info">
 				<tui-list-cell :hover="false" :lineLeft="false">
 					<view class="tui-goods-title">
@@ -126,7 +127,6 @@
        
 	</view>
 </template>
-
 <script>
 	import tuiButton from "@/components/extend/button/button"
 	import tuiListCell from "@/components/list-cell/list-cell"
@@ -176,6 +176,7 @@
 			
 		},
 		methods: {
+			
 			chooseAddr() {
 				uni.navigateTo({
 					url: "../address/address?source=1"

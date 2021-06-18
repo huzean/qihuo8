@@ -1,24 +1,25 @@
 <template>
   <view class="container">
     <!--tabbar-->
-    <view class="tui-tabbar" :style="{ height: is_lhp ? '144rpx' : '99rpx' }">
+    <view class="tui-tabbar" :style="{ height: is_lhp ? '130rpx' : '105rpx' }">
       <block v-for="(item, index) in tabbar" :key="index">
         <view
-          :style="{ margin: is_lhp ? '0px 0px 30px' : '5px' }"
+          :style="{ margin: is_lhp ? '0px 0px 20px' : '5px' }"
           class="tui-tabbar-item"
           :class="[current == index ? 'tui-item-active' : '']"
           :data-index="index"
           @tap="tabbarSwitch"
         >
           <view class="icon-size" :class="[index == 0 ? 'tui-ptop-4' : '']">
-            <text class="iconfont">{{ item.icon }}</text>
-            <!-- <tui-icon
-              :name="current == index ? item.icon + '-fill' : item.icon"
-              :color="current == index ? '#5e017a' : '#666'"
-              :size="item.size"
-            ></tui-icon> -->
+            <!-- <text class="iconfont" :class="asticonfont[index]">{{ item.icon}}</text> -->
+            <text class="iconfont" :class="index == 2 ? 's3' : ''">{{
+              item.icon
+            }}</text>
           </view>
-          <view class="tui-scale">{{ item.text }}</view>
+          <!-- <view :class="size_name[index]" class="tui-scale">{{ item.text }}</view> -->
+          <view :class="'s' + (index + 1)" class="tui-scale">{{
+            item.text
+          }}</view>
         </view>
       </block>
     </view>
@@ -27,13 +28,6 @@
     <view class="tui-header">
       <view class="title">
         <view class="flex_col" :style="{ height: is_lhp ? '58px' : '37px' }">
-          <!-- <view
-            class="title_left"
-            :style="{ padding: is_lhp ? '25px 0 0 0' : '0px' }"
-            >
-            广州
-            <image src="../../static/images/mall/nav/jt.png" mode="widthFix" />
-          </view> -->
           <picker
             :style="{ padding: is_lhp ? '25px 0 0 0' : '0px' }"
             class="title_left"
@@ -41,8 +35,7 @@
             :range="array"
           >
             <label>{{ array[indexs] }}</label>
-            <text class="iconfont icon-winfo-icon-xiajiantou" ></text>
-            <!-- <image src="../../static/images/mall/nav/jt.png" mode="widthFix" /> -->
+            <text class="iconfont icon-winfo-icon-xiajiantou"></text>
           </picker>
         </view>
       </view>
@@ -67,8 +60,8 @@
       <swiper
         :indicator-dots="true"
         :autoplay="true"
-        :interval="5000"
-        :duration="150"
+        :interval="3000"
+        :duration="2000"
         class="tui-banner-swiper"
         :circular="true"
         indicator-color="rgba(255, 255, 255, 0.8)"
@@ -79,16 +72,8 @@
           v-for="(item, index) in banner"
           :key="index"
         >
-          <!--   @tap.stop="gotoPage(item.url)" -->
           <image :src="item.img" class="tui-slide-image" mode="scaleToFill" />
         </swiper-item>
-        <!-- <swiper-item class="sw_item">
-          <image
-            src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1571489269,4043804085&fm=26&gp=0.jpg"
-            class="tui-slide-image"
-            mode="widthFix"
-          />
-        </swiper-item> -->
       </swiper>
     </view>
     <!-- 功能区 -->
@@ -113,22 +98,20 @@
     <!-- 列表 -->
     <view
       class="content_list"
-      v-for="(item, index) in productlist"
+      v-for="(item, index) in product_List"
       :key="index"
     >
-      <view class="list_left">
+      <view class="list_left" @click="skip(item.eid)">
         <image
-          :src="'/static/images/mall/nav/' + item.img"
+          :src="img_url + item.product_info[0].image"
           class="tui-category-img"
           mode="scaleToFill"
         ></image>
-        <!-- <image src="../../static/images/mall/nav/list.png" mode="widthFix" /> -->
-        <!-- <image :src="item.image" @tap="detail(item.id)" /> -->
         <view class="list_quantity">
           <view class="list_text">
             <view>
               <!-- <text>5</text> -->
-              <text>{{ item.amount }}</text>
+              <text>{{ item.quote_no }}</text>
             </view>
             <view><text>家</text> 供应商报价</view>
           </view>
@@ -139,50 +122,53 @@
         <view class="right_box">
           <view class="right_text_noe">
             <!-- <view>王老吉</view> -->
-            <view>{{ item.name }}</view>
+            <view>{{ item.product_info[0].store_name }}</view>
             <view>
-              <text class="text_quantity">{{ item.number }}</text>
-              <text class="text">件</text>
+              <text class="text_quantity">{{
+                item.product_info[0].product_num
+              }}</text>
+              <text class="text">{{ item.product_info[0].unit_name }}</text>
             </view>
           </view>
-          <view class="specification">{{ item.specification }}</view>
           <view class="time time_delivery">
             <text>交货时间:</text>
-            <text>{{ item.delivery }}</text>
+            <!-- <text>{{ formatDateTime(item.deadline) }}</text> -->
+            <text>{{ item.deadline }}</text>
           </view>
           <view class="time time_end">
             <text>截止时间:</text>
-            <text>{{ item.expirationdate }}</text>
+            <text>{{ item.delivery_deadline }}</text>
           </view>
           <view class="location">
-            <view>
+            <view class="location_hole">
               <text class="bg iconfont icon-weizhi"></text>
-              <text class="location_text bg">{{ item.location }}</text>
+              <text class="location_text bg">{{ item.address }}</text>
             </view>
+            <!-- 报价 -->
             <view class="make">
-              <view @click="navto"> 报价 </view>
+              <view @click="navto(item, index)">
+                {{ !item.is_quoted ? "报价" : "已报价" }}
+              </view>
               <text class="line_segment"></text>
               <view class="make_right">
-                <text>{{ item.integral }}</text>
+                <text>{{ item.credit_amount }}</text>
                 <text class="iconfont icon-jifen"></text>
               </view>
             </view>
             <!-- 收藏 -->
-            <!-- <view class="tui-collection"  @click="isShow=!isShow"  :class="{red: !isShow,gray: isShow}">
-                <text class="iconfont icon-shoucang1"></text>
-						  <view class="enshrine " :class="{'tui-icon-red':collected}">收藏</view>
-					</view> -->
-            <view @click="showImg(index)">
-              <view class="tui-collection" v-if="!showSearch">
-                <text class="iconfont icon-shoucang1"></text>
-                <view class="enshrine">收藏</view>
-              </view>
-              <view class="tui-collection" v-if="showSearch">
-                <image
-                  src="../../static/images/mall/nav/07.png"
-                  mode="widthFix"
-                />
-                <view class="enshrine2">收藏</view>
+            <view @click="liscollet(index, item)">
+              <view class="tui-collection">
+                <tui-icon
+                  :name="item.is_fav ? 'star-fill' : 'star'"
+                  :size="22"
+                  :color="item.is_fav ? '#ff0188' : '#333'"
+                ></tui-icon>
+                <text
+                  class="icon_tb"
+                  :style="item.is_fav ? 'color: #ff0188;' : ''"
+                  >{{ !item.is_fav ? "关注" : "已关注" }}</text
+                >
+                <!-- {{item.is_fav}} -->
               </view>
             </view>
             <!--  -->
@@ -190,8 +176,109 @@
         </view>
       </view>
     </view>
+    <!-- 报价底部弹窗-->
+    <tui-bottom-popup
+      :show="popupShow"
+      @close="hidePopup"
+      v-for="(item, index) in product_ordl"
+      :key="index"
+    >
+      <view class="tui-popup-box">
+        <view class="tui-product-popup-box">
+          <view class="popuo_item_box">
+            <view class="item_left">
+              <image
+                :src="img_url + item.product_info[0].image"
+                mode="widthFix"
+              ></image>
+              <!-- <image
+                src="../../static/images/mall/nav/list.png"
+                mode="widthFix"
+              /> -->
+            </view>
+            <view class="item_right">
+              <view class="top_left">
+                <!-- <view class="top_left_name">35°劲酒125ml（1*24瓶）</view> -->
+                <view class="top_left_name">{{
+                  item.product_info[0].store_name
+                }}</view>
+              </view>
+              <view class="top_right">
+                <view class="superstratum_item"
+                  >{{ item.product_info[0].product_num }}
+                  {{ item.product_info[0].unit_name }}
+                </view>
+                <view class="substratum_item">
+                  <text>{{ item.credit_amount }}</text>
+                  <text>积分</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!--  -->
+        <scroll-view scroll-y class="tui-popup-scroll-index">
+          <view class="tui-scrollview-box">
+            <view class="bid_amount">
+              <view class="bid_amout_view">
+                <text class="iconfont icon-jine"></text>
+                <input
+                  type="number"
+                  pattern="\d*"
+                  class="input"
+                  v-model="bidamount"
+                  placeholder-style="font-size:14px;"
+                  placeholder="请输入报价金额"
+                  placeholder-class="placeholder"
+                />
+              </view>
+              <view class="monetary_unit">元</view>
+            </view>
+          </view>
+          <!-- 我的积分 -->
+
+          <view class="my_integral" style="margin-bottom: 10rpx">
+            <view class="integral_item iconfont">
+              <view class="rule_left">
+                <text class="iconfont iconfont icon-jifen"></text>
+                <text>我的积分</text>
+              </view>
+              <view class="rigth_rule" @click="checlrule">
+                <text class="iconfont icon-gantanhaoyuan"> </text>
+                -积分规则-
+              </view>
+            </view>
+
+            <view class="center_integral">
+              <view>00.00</view>
+              <view>立即充值</view>
+            </view>
+          </view>
+          <!-- <view>{{ item.eid }}</view> -->
+        </scroll-view>
+        <view class="name_rule" v-if="rule" @click="checlruleclose"
+          >积分的使用规则如下1</view
+        >
+        <view
+          :style="{ height: is_lhp ? '70px' : '50px' }"
+          class="tui-operation tui-operation-right tui-right-flex tui-popup-btn"
+        >
+          <view class="tui_button">
+            <view @click="submitquotation(item, index)" class="nth-child"
+              >确定</view
+            >
+            <view class="nth_solide"></view>
+            <view class="nth-child" @tap="hidePopup">取消</view>
+          </view>
+        </view>
+      </view>
+    </tui-bottom-popup>
     <!-- 1 -->
-    <!-- 1 -->
+
+    <!--加载loadding-->
+    <tui-loadmore :visible="loadding" :index="3" type="red"></tui-loadmore>
+    <tui-nomore :visible="!pullUpOn" bgcolor="#fafafa"></tui-nomore>
+    <!--加载loadding-->
   </view>
 </template>
 <script>
@@ -200,6 +287,8 @@ import tuiTag from "@/components/tag/tag";
 import tuiLoadmore from "@/components/loadmore/loadmore";
 import tuiNomore from "@/components/nomore/nomore";
 import tuiBottomPopup from "@/components/bottom-popup/bottom-popup";
+import { XcxToken } from "@/common/xcx_token.js";
+var xcxtoken = new XcxToken();
 export default {
   components: {
     tuiIcon,
@@ -207,28 +296,35 @@ export default {
     tuiLoadmore,
     tuiNomore,
     tuiBottomPopup,
+    tuiLoadmore,
+    tuiNomore,
   },
   data() {
     return {
-      // 判断手机类型
-      is_lhp: false,
-      showSearch: false,
-      isactive: -1,
-      inputTitle: "",
-      inputValue: "",
+      img_url: this.$img_url,
+      rule: false, //规则
+      bidamount: "", //报价金额
+      itemb: 1,
+      is_lhp: false, // 判断手机类型
       current: 0,
-      isActive: 1,
-      array: ["广州", "东莞", "中山"],
+      array: [
+        "全部地区",
+        "华南地区",
+        "湖南地区",
+        "湖北地区",
+        "江西地区",
+        "云南地区",
+        "四川地区",
+        "江西地区",
+      ],
       indexs: 0,
       banner: [
         {
-          img:
-            "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1571489269,4043804085&fm=26&gp=0.jpg",
+          img: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1571489269,4043804085&fm=26&gp=0.jpg",
         },
         { img: "../../static/images/mall/nav/banner.png" },
         {
-          img:
-            "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1571489269,4043804085&fm=26&gp=0.jpg",
+          img: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1571489269,4043804085&fm=26&gp=0.jpg",
         },
       ],
       tabbar: [
@@ -241,64 +337,21 @@ export default {
           text: "询价",
         },
         {
-          icon: "\ue646",
-          text: "报价",
+          icon: "\ue621",
+          text: "求购",
         },
         {
-          icon: "\ue60a",
+          icon: "\ue630",
+          text: "联系",
+        },
+        {
+          icon: "\ue63f",
           text: "我的",
         },
       ],
-      productlist: [
-        {
-          id: 1,
-          img: "list.png",
-          amount: "5",
-          name: "王老吉",
-          number: "500",
-          specification: "1*24灌/件",
-          delivery: "2021-3-6-10-23",
-          expirationdate: "2021-3-7-10-23",
-          location: "广州番禺",
-          integral: "2",
-        },
-        {
-          id: 2,
-          img: "list.png",
-          amount: "5",
-          name: "王老吉",
-          number: "400",
-          specification: "1*24灌/件",
-          delivery: "2021-3-6-10-23",
-          expirationdate: "2021-3-7-10-23",
-          location: "广州番禺",
-          integral: "2",
-        },
-        {
-          id: 3,
-          img: "list.png",
-          amount: "5",
-          name: "王老吉",
-          number: "300",
-          specification: "1*24灌/件",
-          delivery: "2021-3-6-10-23",
-          expirationdate: "2021-3-7-10-23",
-          location: "广州番禺",
-          integral: "2",
-        },
-        {
-          id: 4,
-          img: "list.png",
-          amount: "5",
-          name: "王老吉",
-          number: "510",
-          specification: "1*24灌/件",
-          delivery: "2021-3-6-10-23",
-          expirationdate: "2021-3-7-10-23",
-          location: "广州番禺",
-          integral: "2",
-        },
-      ],
+      product_List: [],
+      product_ordl: [],
+      datalist: [],
       category: [
         {
           img: "01.png",
@@ -310,35 +363,40 @@ export default {
         },
         {
           img: "03.png",
-          // name: "签到",
+          name: "查看排名",
         },
         {
           img: "04.png",
-          // name: "积分",
+          name: "我的积分",
         },
         {
           img: "05.png",
-          // name: "开牌",
+          name: "开牌",
         },
         {
           img: "06.png",
-          // name: "拍照",
+          name: "联系",
         },
         {
           img: "07.png",
-          // name: "搜藏",
+          name: "搜藏",
         },
         {
           img: "02.png",
-          // name: "分类",
+          name: "其它",
         },
       ],
-      pageIndex: 1,
+      popupShow: false,
+      // flag: true,
+      value: "",
+      eidlist: "",
+      cidlist: "",
+      succeed_type: "1", //已收藏
+      cancel_type: "1", //取消收藏
       loadding: false,
       pullUpOn: true,
-      popupShow: false,
-      flag: true,
-      value: "",
+      pageIndex: 1,
+      pageLimit: 10,
     };
   },
   onLoad() {
@@ -346,88 +404,172 @@ export default {
     let _this = this;
     this.is_lhp = this.$is_bang;
     console.log("是否为刘海屏", this.is_lhp);
+    var is_login = uni.getStorageSync("is_login");
+    if (is_login == 0) {
+      uni.showLoading({
+        title: "登录中",
+      });
+      xcxtoken.verify(this, 0);
+    } else {
+      this.listenquiry();
+    }
   },
-  //     onPageScroll: function(Object) {
-  //  console.log(Object.scrollTop);//实时获取到滚动的值
-
   methods: {
+    //积分规则
+    checlrule() {
+      // this.rule = true;
+    },
+    checlruleclose() {
+      this.rule = false;
+    },
+    listenquiry() {
+      this.$api.CC_request.enquiry_index({
+        page: this.pageIndex,
+        limit: this.pageLimit,
+      }).then((res) => {
+        if (res.length > 0) {
+          var collect = res;
+          this.product_List = this.product_List.concat(res);
+          collect.forEach((element) => {
+            this.$set(element, "state_collect", false); //收藏
+            this.$set(element, "item_baojia", "已报价");
+          });
+        }
+        //数据已加载完
+        if (res.length < this.pageLimit) {
+          this.loadding = false;
+          this.pullUpOn = false;
+        }
+        this.loadding = false;
+      });
+    },
+    login_finished() {
+      uni.hideLoading();
+	  var is_login = uni.getStorageSync('is_login');
+	  if(is_login == 0){
+		  uni.showModal({
+		      title: '温馨提示',
+		      content: '选择登录，更多服务',
+		      success: function (res) {
+		          if (res.confirm) {
+		              uni.navigateTo({
+		              	url:'/pages/user/user'
+		              })
+		          } else if (res.cancel) {
+		              return
+		          }
+		      }
+		  });
+	  }
+      this.listenquiry();
+    },
     search: function () {
       uni.navigateTo({
         url: "../extend-view/news-search/news-search", //分类
       });
-      console.log("点击了");
     },
     clicknavi(e) {
       if (e == 0) {
         uni.navigateTo({
-          url: "/pages/inquirylist/index",
+          url: "/pages/inquirylist/enquiry?state=1",
         });
-        console.log("点击了");
       }
       if (e == 1) {
         uni.navigateTo({
           url: "/pages/category/cate",
         });
       }
+      if (e == 2) {
+        uni.navigateTo({
+          url: "/pages/rankinglist/ranking",
+        });
+      }
     },
-    navto: function (e) {
-      console.log("点击了");
-      uni.showModal({
-        title: '需要消耗积分',
-        content: '1234',
-        showCancel:false,
-        success: function (res) {
-            if (res.confirm) {
-                console.log('用户点击确定');
-            } else if (res.cancel) {
-                console.log('用户点击取消');
-            }
-        },
-      })
-     
+    hidePopup: function () {
+      this.popupShow = false;
+      this.rule = false;
+      this.bidamount = "";
+    },
+    // 提交报价
+    submitquotation(item, index) {
+      console.log("sssssss", item);
+      if (this.bidamount == "") {
+        uni.showToast({
+          title: "请输入金额",
+        });
+      } else {
+        uni.showToast({
+          title: "提交成功",
+          duration: 3000,
+        });
+        this.$api.CC_request.quote(
+          item.eid,
+          this.bidamount //金额
+        ).then((res) => {});
+        this.popupShow = false;
+        this.bidamount = "";
+        setTimeout(function () {
+          uni.navigateTo({
+            url: "../enquirylist/enquiry?state=1",
+          });
+        }, 1500);
+      }
+      console.log(item);
+      console.log(index);
+    },
+    navto: function (item, index) {
+      console.log("报价", item);
+      if (item.is_quoted == 1) {
+        this.popupShow = false;
+        uni.showToast({
+          title: "不能重复报价",
+          duration: 1000,
+        });
+      } else {
+        this.popupShow = true;
+      }
+      var datalist = [];
+      if (item) {
+        // const tradindata = item;
+        datalist.push(item);
+      }
+      this.product_ordl = datalist;
+      console.log("每个弹窗数据", item.product_info[0]);
     },
     bindPickerChange: function (e) {
-      //改变的事件名
-      //console.log('picker发送选择改变，携带值为', e.target.value)   用于输出改变索引值
-      this.indexs = e.target.value; //将数组改变索引赋给定义的index变量
-      this.city = this.array[this.indexs]; //将array【改变索引】的值赋给定义的变量
-      console.log("城市：", this.city); //输出获取的籍贯值，例如：中国
+      this.indexs = e.target.value; 
+      this.city = this.array[this.indexs]; 
+      console.log("城市：", this.city); 
     },
-
-    showImg: function (e) {
-      let message = this.productlist;
-      console.log(message);
-      for (let i in message) {
-        if (e == 0) {
-          this.showSearch = true;
-        }
+    // 收藏
+    liscollet: function (index, item) {
+      if (this.product_List[index].is_fav) {
+        this.$api.CC_request.cancel_en_relation(
+          item.eid,
+          item.cid,
+          this.cancel_type //取消收藏
+        ).then((res) => {});
+        uni.showToast({
+          title: "取消成功",
+        });
+      } else {
+        this.$api.CC_request.add_en_relation(
+          item.eid, //询价id
+          this.succeed_type //已收藏
+        ).then((res) => {});
+        uni.showToast({
+          title: "收藏成功",
+        });
       }
-      // if(e==0){
-      //   console.log(0)
-      //       this.showSearch = true;
-
-      // }if(e==1)
-      // console.log(111)
-      // this.showSearch = !this.showSearch;
+      this.product_List[index].is_fav = !this.product_List[index].is_fav;
     },
-    lun_bo(e) {
-      this.isactive = e;
+    // 跳转详情页
+    skip(eid) {
+      uni.navigateTo({
+        url: "../extend-view/detailpage/index?eid=" + eid,
+        // myenquirydetail
+      });
     },
-    handleChange: function (e) {
-      this.inputTitle = "";
-    },
-    change: function (e) {
-      var txtTitle = e.detail.value;
-      this.inputTitle = txtTitle;
-    },
-    onKeyInput: function (event) {
-      // this.inputValue = event.target.value
-      // console.log(  this.inputValue = event.target.value)
-    },
-    chenked(type) {
-      this.isActive = type;
-    },
-
     tabbarSwitch: function (e) {
       let index = e.currentTarget.dataset.index;
       let url = "";
@@ -436,12 +578,15 @@ export default {
           url = "/pages/index/index";
           break;
         case 1:
-          url = "/pages/enquirylist/enquiry";
+          url = "/pages/enquirylist/enquiry?state=1";
           break;
         case 2:
-          url = "/pages/makeoffers/make";
+          url = "/pages/inquirylist/index";
           break;
         case 3:
+          // url = "/pages/makeoffers/make";
+          break;
+        case 4:
           url = "/pages/user/user";
           break;
         default:
@@ -462,6 +607,13 @@ export default {
         // url: '../makeoffers/make?searchKey=' + key
       });
     },
+    onReachBottom() {
+      if (this.pullUpOn == false) {
+        return;
+      }
+      this.pageIndex = this.pageIndex + 1;
+      this.listenquiry();
+    },
   },
 };
 </script>
@@ -471,17 +623,37 @@ export default {
 .icon-iconfenlei {
   color: #fff;
 }
+.scactive {
+  color: #ff0000;
+}
+.name_rule {
+  position: absolute;
+  width: 100%;
+  height: 110px;
+  background: #fff;
+  top: 155px !important;
+  left: 0;
+}
 page {
   // background: #f4f4f4;
   background: #f0f2f5;
-  font-family: Source Han Sans CN;
+  // font-family: Source Han Sans CN;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
+// //////
 .container {
   padding-bottom: 100rpx;
   color: #333;
 }
 .down {
   border: solid #ffffff;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  //
+  border: solid #fff;
   border-width: 0 1px 1px 0;
   display: inline-block;
   padding: 5px;
@@ -518,69 +690,41 @@ page {
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 30upx;
+  font-size: 34upx;
   color: #666;
-  // margin: 0 0 25px 0;
 }
-
 .tui-ptop-4 {
   padding-top: 4rpx;
 }
-
-.tui-scale {
-  transform: scale(0.5);
-  transform-origin: center 100%;
-  line-height: 24rpx;
-  font-size: 20px;
+.s3 {
+  position: relative;
+  top: -30rpx;
 }
-
-.icon-size{
-  .iconfont{
-  font-size: 18px; 
-  // font-weight:bold;
-  font-weight: 400;
-  margin-bottom: 5px;
+.icon-size {
+  .s3 {
+    font-size: 90rpx;
+    position: relative;
+    background: linear-gradient(0deg, #c33d9d 0%, #862b6e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    top: -10px;
   }
-  }
-
+}
 .tui-item-active {
-  color: #5e017a !important;
-  // font-weight: bold;
+  color: #b13b8f !important;
 }
-
 /*tabbar*/
-
-.tui-header {
-  width: 100%;
-  height: 100rpx;
-  padding: 0 30rpx 0 20rpx;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  left: 0;
-  top: 0;
-  /* #ifdef H5 */
-  top: 44px;
-  /* #endif */
-  z-index: 999;
-}
-
 .tui-product-box {
   padding-top: 65rpx;
   box-sizing: border-box;
 }
-
 .tui-product-list {
-  height: 215rpx;
+  height: 210rpx;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
   box-sizing: border-box;
-  // margin-top:106rpx;
-  // border:solid red 1px;
   background: #5e017a;
   color: #fff;
   border-radius: 0 0 15px 15px;
@@ -598,11 +742,8 @@ page {
   color: #ffffff;
   margin-left: 15px;
   font-size: 14px;
-  // border:solid red 1px;
-  // line-height: 45px;
   .iconfont {
     width: 15px;
-    // padding:8px 0px 0 3px;
     position: relative;
     left: 5px;
     top: 2px;
@@ -613,7 +754,6 @@ page {
   top: 0;
   left: 0;
   width: 100%;
-  // height: 65px;
   padding-top: 25px;
   z-index: 10;
   background-color: #5e017a;
@@ -626,12 +766,9 @@ page {
   display: flex;
   text-align: center;
   padding: 10px 0px;
-  // border:solid red 1px;
-  // position: absolute;
   .left {
     height: 30px;
     flex: 9;
-    // border:solid red 1px;
     background: #fff;
     margin-left: 15px;
     border-radius: 14px;
@@ -641,10 +778,7 @@ page {
     view {
       margin-left: 10px;
       color: #000;
-      // border:solid red 1px;
       vertical-align: center;
-
-      // line-height: 35px;
     }
     text {
       margin-left: 10px;
@@ -659,7 +793,6 @@ page {
     font-weight: bold;
     height: 30px;
     flex: 1;
-    // border:solid red 1px;
     margin-right: 15px;
     line-height: 30px;
     text-align: right;
@@ -679,20 +812,17 @@ page {
     border-radius: 12rpx;
     overflow: hidden;
     transform: translateY(0);
-    // border:solid red 1px;
   }
   .sw_item {
     .tui-slide-image {
       width: 100%;
-      height: 114px;
+      height: 228rpx;
     }
   }
 }
-
 // 功能
 .middle_nav {
   width: 95%;
-  // height: 162px;
   display: flex;
   margin: 10px auto;
   background: #ffffff;
@@ -700,7 +830,6 @@ page {
   .middle_box {
     width: 100%;
     height: 80%;
-    // border:solid red 1px;
     margin: 15px auto;
     display: flex;
     justify-content: space-around;
@@ -713,7 +842,6 @@ page {
       align-items: center;
       justify-content: space-around;
       flex-direction: column;
-      // border:solid red 1px;
       .tui-category-img {
         height: 45rpx;
         width: 45rpx;
@@ -731,39 +859,28 @@ page {
 // 内容
 .content_list:last-child {
   margin-bottom: 30px;
-  // background:#ff0000;
 }
 .content_list {
   width: 95%;
-  height: 130px;
   margin: 10px auto;
   background: #ffffff;
   border-radius: 8px;
   display: flex;
-  // border:solid red 1px;
-  // padding-bottom:100px;
-  // margin-bottom:100px;
   .list_left {
     display: flex;
     flex: 2;
-    // border: solid red 1px;
     flex-direction: column;
     align-items: center;
     position: relative;
-    // border:solid red 1px;
-    // margin-left:20rpx;
     image {
       width: 85px;
       height: 75px;
-      // border: solid red 1px;
     }
     .list_quantity {
       width: 100%;
       height: 55px;
       display: flex;
-      // border: solid red 1px;
       .list_text {
-        // border: solid red 1px;
         position: relative;
         margin: 0 auto;
         view:nth-child(1) {
@@ -773,7 +890,6 @@ page {
             height: 29px;
             font-size: 18px;
             margin-left: -15px;
-            // position: absolute;
             font-family: Microsoft YaHei;
             color: #3e2a65;
             text-align: center;
@@ -793,7 +909,6 @@ page {
           font-size: 12px;
           color: #999999;
           text {
-            // color:red;
             position: absolute;
             top: 2px;
             left: 35px;
@@ -812,40 +927,38 @@ page {
   .list_right {
     display: flex;
     flex: 7;
-    // border: solid red 1px;
     position: relative;
     .right_box {
       width: 100%;
       height: 100%;
-      //  margin-right:20rpx;
-      // border: solid red 1px;
       .right_text_noe {
         display: flex;
         justify-content: space-between;
-        // flex-direction: column;
         view:nth-child(1) {
           font-size: 13px;
+          width: 130px;
           font-family: Microsoft YaHei;
           font-weight: bold;
           color: #333333;
+          line-height: 20px;
           display: flex;
           align-items: center;
           letter-spacing: 1.5px;
+          display: flex;
+          margin-top: 8px;
+          flex-wrap: wrap;
         }
         view:nth-child(2) {
           .text_quantity {
             font-size: 20px;
             color: #6a0098;
             font-weight: bold;
-            // color: #6a0098;
             margin-right: 5px;
             line-height: 35px;
-            background: linear-gradient(121deg, #ff0188 0%, #fe011d 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ff0188;
           }
           .text {
-            color: #fe011d;
+            color: #ff0188;
             font-size: 20px;
             font-weight: bold;
             margin-right: 5px;
@@ -860,7 +973,7 @@ page {
         letter-spacing: 2px;
       }
       .time_delivery {
-        margin: 8px 0 3px 0;
+        margin: 8px 0 5px 0;
       }
       .time {
         font-size: 12px;
@@ -871,22 +984,31 @@ page {
       }
 
       .location {
+        margin-top: 3px;
         .bg {
           background: linear-gradient(0deg, #c33d9d 0%, #862b6e 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           font-weight: bold;
         }
+        .location_hole {
+          display: flex;
+          align-items: center;
+        }
         display: flex;
         align-items: center;
-        padding-top: 5px;
-
         justify-content: space-between;
         .icon-weizhi {
           font-size: 18px;
         }
         .location_text {
           font-size: 14px;
+          float: right;
+          white-space: normal;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 90px;
         }
         .make {
           width: 80px;
@@ -894,21 +1016,18 @@ page {
           position: absolute;
           top: 85;
           right: 15px;
-          // margin-top: -15px;
           align-items: center;
           display: flex;
-          // border:solid red 1px;
           justify-content: space-around;
           background: linear-gradient(0deg, #c33d9d 0%, #862b6e 100%);
           border-radius: 4px;
           color: #fff;
           .line_segment {
             border: solid #f4f4f4 0.5px;
-            // width:1px;
             height: 100%;
           }
           view:nth-child(1) {
-            font-size: 16px;
+            font-size: 29rpx;
             letter-spacing: 3px;
           }
           .make_right {
@@ -929,36 +1048,21 @@ page {
           position: absolute;
           top: 35px;
           right: 25px;
-          image {
-            width: 18px;
-          }
-          .iconfont {
-            font-size: 18px;
-          }
-          .enshrine {
+          display: flex;
+          flex-direction: column;
+          font-size: 20px;
+          .icon_tb {
             font-size: 10px;
-            font-family: Source Han Sans CN;
-            font-weight: 400;
-            // color: #666666;
-            margin-top: 3px;
-          }
-          .enshrine2 {
-            color: red;
-            font-size: 10px;
-            font-family: Source Han Sans CN;
-            font-weight: 400;
-            // color: #666666;
-            margin-top: 3px;
           }
         }
       }
     }
   }
 }
-.red {
-  color: red;
-}
-.gray {
-  color: #666666;
-}
+// .red {
+//   color: red;
+// }
+// .gray {
+//   color: #666666;
+// }
 </style>
